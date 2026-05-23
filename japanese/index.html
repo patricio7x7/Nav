@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本語 — Japanese Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #130f09;
+  --s1:      #1b1510;
+  --border:  #3a3020;
+  --amber:   #c9924a;
+  --red:     #b05252;
+  --sage:    #6b8c72;
+  --text:    #e4d9c0;
+  --dim:     #8a7a5c;
+  --dimmer:  #4a4230;
+  --mono:    'IBM Plex Mono', monospace;
+  --serif:   'Shippori Mincho', serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size:200px 200px; opacity:0.6;
+}
+
+.wrap {
+  position: relative; z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+  flex: 1;
+}
+
+/* BACK LINK */
+.back {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dimmer);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 3.5rem;
+  transition: color 0.15s;
+}
+.back:hover { color: var(--dim); }
+.back::before { content: '←'; }
+
+/* HEADER */
+.hero { margin-bottom: 3.5rem; }
+
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 .ja {
+  display: block;
+  color: var(--text);
+}
+
+.hero h1 .rom {
+  display: block;
+  color: var(--amber);
+  font-size: 0.45em;
+  letter-spacing: 0.05em;
+  margin-top: 0.3rem;
+}
+
+.hero-desc {
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.75;
+  max-width: 480px;
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+}
+
+/* DIVIDER */
+.divider {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dimmer);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* SECTION CARDS */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.section-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: background 0.15s;
+  gap: 1.5rem;
+}
+.section-card:last-child { border-bottom: none; }
+.section-card:hover:not(.locked) { background: var(--s1); }
+
+.section-card.locked {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.card-left {}
+
+.card-num {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.3rem;
+}
+
+.card-num.locked-num { color: var(--dimmer); }
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.card-title .ja-small {
+  font-size: 0.75rem;
+  color: var(--dim);
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+
+.card-meta {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--dim);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.card-meta span::before {
+  content: '·';
+  color: var(--dimmer);
+}
+
+.card-meta span:first-child::before { display:none; }
+
+.card-right {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--amber);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-right.locked-arrow { color: var(--dimmer); }
+
+/* PROGRESS BAR ON CARD */
+.card-progress {
+  margin-top: 0.6rem;
+  height: 2px;
+  background: var(--border);
+  width: 160px;
+  max-width: 100%;
+}
+.card-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--amber), var(--red));
+}
+
+/* VOCAB MAP */
+.vocab-map {
+  margin-bottom: 3rem;
+}
+
+.vmap-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+
+.vmap-row:last-child { border-bottom: none; }
+
+.vmap-label { color: var(--dim); width: 90px; flex-shrink: 0; }
+.vmap-bar { flex: 1; height: 4px; background: var(--border); }
+.vmap-fill { height: 100%; background: var(--sage); }
+.vmap-count { color: var(--dimmer); width: 60px; text-align: right; flex-shrink: 0; }
+
+/* FOOTER */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-note {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--dimmer);
+  letter-spacing: 0.1em;
+}
+
+.footer-back {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--dim);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color 0.15s;
+}
+.footer-back:hover { color: var(--amber); }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a href="https://patricio7x7.github.io/Nav/" class="back">Patrick Nav</a>
+
+  <div class="hero">
+    <span class="hero-tag">Spoken Japanese · Romaji Only · ~3,000 word target</span>
+    <h1>
+      <span class="ja">日本語</span>
+      <span class="rom">Nihongo</span>
+    </h1>
+    <p class="hero-desc">
+      Vocabulary-first. No kana. No grammar drilling. Reading stories in romaji until the language becomes instinct — the same way you learned your first one.
+    </p>
+  </div>
+
+  <div class="divider">Sections</div>
+
+  <div class="sections">
+
+    <a href="section-01.html" class="section-card">
+      <div class="card-left">
+        <div class="card-num">Section 01</div>
+        <div class="card-title">Core Spoken Vocabulary <span class="ja-small">基礎</span></div>
+        <div class="card-meta">
+          <span>~500 words</span>
+          <span>10 stories</span>
+          <span>Conjugations</span>
+          <span>Key phrases</span>
+        </div>
+        <div class="card-progress" style="margin-top:0.6rem">
+          <div class="card-progress-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="card-right">Open →</div>
+    </a>
+
+    <div class="section-card locked">
+      <div class="card-left">
+        <div class="card-num locked-num">Section 02</div>
+        <div class="card-title">Expanding Vocabulary <span class="ja-small">拡張</span></div>
+        <div class="card-meta">
+          <span>+250 words</span>
+          <span>N5 grammar depth</span>
+          <span>~10 stories</span>
+        </div>
+        <div class="card-progress" style="margin-top:0.6rem">
+          <div class="card-progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="card-right locked-arrow">In progress</div>
+    </div>
+
+  </div>
+
+  <div class="divider">Vocabulary map</div>
+
+  <div class="vocab-map">
+    <div class="vmap-row">
+      <span class="vmap-label">Section 01</span>
+      <div class="vmap-bar"><div class="vmap-fill" style="width:100%"></div></div>
+      <span class="vmap-count">~500 words</span>
+    </div>
+    <div class="vmap-row">
+      <span class="vmap-label">Section 02</span>
+      <div class="vmap-bar"><div class="vmap-fill" style="width:0%"></div></div>
+      <span class="vmap-count">+250</span>
+    </div>
+    <div class="vmap-row">
+      <span class="vmap-label">Sections 3–12</span>
+      <div class="vmap-bar"><div class="vmap-fill" style="width:0%"></div></div>
+      <span class="vmap-count">~2,250</span>
+    </div>
+    <div class="vmap-row">
+      <span class="vmap-label">Target</span>
+      <div class="vmap-bar"><div class="vmap-fill" style="width:17%;background:var(--amber)"></div></div>
+      <span class="vmap-count">3,000</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-note">Spoken Japanese · Romaji · No kana</span>
+  <a href="https://patricio7x7.github.io/Nav/" class="footer-back">← Back to Nav</a>
+</footer>
+
+</body>
+</html>
