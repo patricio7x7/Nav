@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本語 · Section 02</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #130f09;
+  --s1:       #1b1510;
+  --s2:       #231c13;
+  --border:   #3a3020;
+  --border2:  #2a2418;
+  --amber:    #c9924a;
+  --red:      #b05252;
+  --sage:     #6b8c72;
+  --text:     #e4d9c0;
+  --dim:      #8a7a5c;
+  --dimmer:   #4a4230;
+  --mono:     'IBM Plex Mono', monospace;
+  --serif:    'Shippori Mincho', serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.6;
+}
+header, nav, main, .progress { position:relative; z-index:1; }
+.progress {
+  position:fixed; top:0; left:0; height:2px;
+  background: linear-gradient(90deg, var(--amber), var(--red));
+  width:0%; z-index:100; transition: width .1s;
+}
+header {
+  max-width: 1100px; margin: 0 auto;
+  padding: 3.5rem 2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
+}
+.section-tag {
+  font-family: var(--mono);
+  font-size: 0.93rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+header h1 {
+  font-size: clamp(3.3rem, 7.5vw, 5.7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+header h1 em { font-style: normal; color: var(--amber); }
+.header-stamp {
+  width: 64px; height: 64px;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  text-align: center;
+  line-height: 1.3;
+  opacity: 0.7;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+nav {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; overflow-x: auto; scrollbar-width: none;
+  gap: 0;
+}
+nav::-webkit-scrollbar { display:none; }
+.tab {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.98rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding: 0.9rem 1.25rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color .15s, border-color .15s;
+}
+.tab:hover { color: var(--text); }
+.tab.on { color: var(--amber); border-bottom-color: var(--amber); }
+main {
+  max-width: 1100px; margin: 0 auto;
+  padding: 2.5rem 2rem 6rem;
+}
+.panel { display:none; }
+.panel.on { display:block; }
+.slabel {
+  font-family: var(--mono);
+  font-size: 0.90rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.clabel {
+  font-family: var(--mono);
+  font-size: 0.87rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dimmer);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.6rem;
+  border-left: 2px solid var(--sage);
+}
+.infobox {
+  border-left: 3px solid var(--amber);
+  background: var(--s1);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 2rem;
+  font-size: 1.20rem;
+  color: var(--dim);
+  line-height: 1.65;
+}
+.infobox strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.90rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.3rem;
+}
+.wtable { width:100%; border-collapse:collapse; margin-bottom:0.5rem; }
+.wtable tr { border-bottom: 1px solid var(--border2); }
+.wtable tr:hover td { background: var(--s1); }
+.wtable td { padding: 0.45rem 0.7rem; font-size: 1.20rem; vertical-align: top; }
+.wtable td:first-child { font-family: var(--mono); color: var(--text); white-space: nowrap; width: 38%; }
+.wtable td:nth-child(2) { color: var(--dim); font-size: 1.17rem; }
+.wtable td:nth-child(3) { color: var(--dimmer); font-size: 1.05rem; font-style: italic; }
+.ptable { width:100%; border-collapse:collapse; border:1px solid var(--border); margin-bottom:0.5rem; }
+.ptable tr { border-bottom: 1px solid var(--border2); }
+.ptable tr:hover td { background: var(--s1); }
+.ptable tr:last-child { border-bottom: none; }
+.ptable td { padding: 0.6rem 0.9rem; font-size: 1.23rem; vertical-align: top; width: 50%; }
+.ptable td:first-child { font-family: var(--mono); color: var(--text); border-right: 1px solid var(--border2); }
+.ptable td:last-child { color: var(--dim); font-style: italic; }
+.ctable { width:100%; border-collapse:collapse; font-size: 1.17rem; margin-bottom:1rem; }
+.ctable th {
+  background: var(--s2); color: var(--amber);
+  font-family: var(--mono); font-size: 0.90rem; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.55rem 0.8rem;
+  text-align: left; border: 1px solid var(--border);
+}
+.ctable td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); vertical-align: top; }
+.ctable tr:hover td { background: var(--s1); }
+.ctable td:first-child { color: var(--dim); font-size: 1.08rem; font-family: var(--mono); white-space: nowrap; }
+.ctable td.rom { font-family: var(--mono); color: var(--text); font-size: 1.20rem; }
+.ctable td.en { color: var(--dim); font-style: italic; }
+.ctable td.ex { font-size: 1.11rem; color: var(--dim); line-height: 1.5; }
+.ctable td.ex .r { display: block; font-family: var(--mono); color: var(--text); margin-bottom: 0.15rem; }
+.conj-h {
+  font-family: var(--mono); font-size: 0.98rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--sage);
+  margin: 2.5rem 0 0.5rem; padding-left: 0.6rem; border-left: 2px solid var(--sage);
+}
+.conj-note { font-size: 1.17rem; color: var(--dim); margin-bottom: 0.85rem; line-height: 1.6; }
+.story-wrap { border: 1px solid var(--border); margin-bottom: 3.5rem; }
+.story-head {
+  padding: 1.1rem 1.4rem; background: var(--s1); border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: flex-start; gap:1rem; flex-wrap: wrap;
+}
+.story-num { font-family: var(--mono); font-size: 0.87rem; letter-spacing: 0.25em; color: var(--amber); text-transform: uppercase; margin-bottom: 0.3rem; }
+.story-title { font-size: 1.50rem; font-weight: 600; color: var(--text); }
+.story-title-en { font-size: 1.17rem; color: var(--dim); font-weight: 400; }
+.story-meta { font-family: var(--mono); font-size: 0.87rem; color: var(--dimmer); text-align: right; line-height: 1.7; }
+.story-body { padding: 1.5rem 1.4rem; }
+.s-block { margin-bottom: 1rem; }
+.s-block:last-child { margin-bottom: 0; }
+.jp-line { font-family: var(--mono); font-size: 1.26rem; color: var(--text); line-height: 1.75; margin: 0.15rem 0 0.2rem; }
+.jp-line.narr { color: var(--dim); font-style: italic; font-family: var(--serif); font-size: 1.23rem; }
+.en-line { font-size: 1.14rem; color: var(--dim); font-style: italic; line-height: 1.55; padding-left: 0.75rem; border-left: 2px solid var(--border); margin: 0; }
+.en-line.narr { color: var(--dimmer); border-left-color: var(--border2); }
+.spk { font-family: var(--mono); font-size: 0.90rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); display: block; margin-top: 1rem; margin-bottom: 0.15rem; }
+.spk:first-child { margin-top: 0; }
+.narr { color: var(--dim); font-style: italic; }
+.vocab-bar { padding: 1rem 1.4rem; background: var(--s1); border-top: 1px solid var(--border); }
+.vocab-label { font-family: var(--mono); font-size: 0.87rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 0.65rem; }
+.vocab-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.vtag { background: var(--bg); border: 1px solid var(--border); padding: 0.22rem 0.55rem; font-family: var(--mono); font-size: 1.01rem; color: var(--text); }
+.vtag span { color: var(--dim); margin-left: 0.35rem; font-size: 0.93rem; }
+@media (max-width: 680px) {
+  .ptable td { display: block; width: 100%; }
+  .ptable td:first-child { border-right: none; border-bottom: 1px solid var(--border2); }
+}
+
+.gloss-line {
+  font-family: var(--mono);
+  font-size: 1.02rem;
+  color: var(--dim);
+  line-height: 1.5;
+  margin: 0.05rem 0 0.2rem;
+  letter-spacing: 0.01em;
+  padding-left: 0.75rem;
+  border-left: 2px dotted var(--border2);
+  font-style: italic;
+}
+.gloss-line.narr { color: var(--dimmer); border-left-color: transparent; }
+
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<header>
+  <div class="header-left">
+    <span class="section-tag">Spoken Japanese · Romaji · Section 02 of ∞</span>
+    <h1>日本語<br><em>Nihongo</em></h1>
+  </div>
+  <div class="header-stamp">Words<br>501–750<br>+Grammar</div>
+</header>
+<nav>
+  <button class="tab on" onclick="go('words',0)">Words</button>
+  <button class="tab" onclick="go('phrases',1)">Phrases</button>
+  <button class="tab" onclick="go('grammar',2)">Grammar</button>
+  <button class="tab" onclick="go('s1',3)">Story 1</button>
+  <button class="tab" onclick="go('s2',4)">Story 2</button>
+  <button class="tab" onclick="go('s3',5)">Story 3</button>
+  <button class="tab" onclick="go('s4',6)">Story 4</button>
+  <button class="tab" onclick="go('s5',7)">Story 5</button>
+  <button class="tab" onclick="go('s6',8)">Story 6</button>
+  <button class="tab" onclick="go('s7',9)">Story 7</button>
+  <button class="tab" onclick="go('s8',10)">Story 8</button>
+</nav>
+<main>
+<div id="p-words" class="panel on">
+<div class="slabel">New Vocabulary — Section 02 · ~250 Words</div>
+<div class="infobox"><strong>How to use</strong>These build on Section 01. Don't memorize — scan and let the stories activate them. Functional nouns (hazu, tsumori, wake, mama) are high-leverage: they show up constantly in natural speech. Learn those early.</div>
+
+<div class="clabel">New Verbs — Action &amp; Motion</div>
+<table class="wtable">
+<tr><td>tsutaeru</td><td>to convey / communicate</td><td>tsutaete ageru = tell/convey for someone</td></tr>
+<tr><td>kotaeru</td><td>to answer / respond</td><td>shitsumon ni kotaeru = answer a question</td></tr>
+<tr><td>okuru</td><td>to send / ship</td><td>different from okuru=see off</td></tr>
+<tr><td>ukeru</td><td>to receive / take (a test/class)</td><td>mensetsu wo ukeru = take an interview</td></tr>
+<tr><td>hakobu</td><td>to carry / transport</td><td></td></tr>
+<tr><td>narabu</td><td>to line up / queue</td><td>narande imasu = is lined up</td></tr>
+<tr><td>erabu</td><td>to choose / select</td><td></td></tr>
+<tr><td>azukeru</td><td>to leave in someone's care / check in</td><td>nimotsu wo azukeru = check baggage</td></tr>
+<tr><td>tetsudau</td><td>to help / assist (with a task)</td><td>more hands-on than tasukeru</td></tr>
+<tr><td>magaru</td><td>to turn (direction)</td><td>migi ni magaru = turn right</td></tr>
+<tr><td>noboru</td><td>to climb / go up</td><td>kaidan wo noboru = climb stairs</td></tr>
+<tr><td>sawaru</td><td>to touch</td><td></td></tr>
+<tr><td>shiraseru</td><td>to inform / let someone know</td><td>shirasete oku = let them know in advance</td></tr>
+<tr><td>hirou</td><td>to pick up (something on the ground)</td><td></td></tr>
+<tr><td>katazukeru</td><td>to tidy up / put away</td><td>heya wo katazukeru = tidy the room</td></tr>
+<tr><td>suteru</td><td>to throw away / discard</td><td></td></tr>
+</table>
+
+<div class="clabel">New Verbs — Change &amp; State</div>
+<table class="wtable">
+<tr><td>kowareru</td><td>to break down / stop working</td><td>intransitive — thing breaks on its own</td></tr>
+<tr><td>naoru</td><td>to get fixed / recover</td><td>intransitive — things fix themselves</td></tr>
+<tr><td>kawaru</td><td>to change / be different</td><td>seikatsu ga kawatta = life has changed</td></tr>
+<tr><td>tomaru</td><td>to stop / stay overnight</td><td>dual meaning — context tells you</td></tr>
+<tr><td>komu</td><td>to be crowded / packed</td><td>eki ga konde iru = the station is crowded</td></tr>
+<tr><td>sumu</td><td>to be finished / resolved</td><td>different from sumu = to live</td></tr>
+<tr><td>awateru</td><td>to panic / rush / fluster</td><td>awatenaide = don't panic</td></tr>
+<tr><td>okoru</td><td>to get angry</td><td>okotte iru = is angry</td></tr>
+<tr><td>ayamaru</td><td>to apologize</td><td>gomen to iu = also apologize, but ayamaru more formal</td></tr>
+<tr><td>yorokobu</td><td>to be pleased / rejoice</td><td>yorokonde = gladly (te-form used as adverb)</td></tr>
+<tr><td>noriokureru</td><td>to miss (a train/bus)</td><td>saishuu densha ni noriokureru = miss the last train</td></tr>
+<tr><td>maniawanai / maniaimasu</td><td>to not make it in time / to make it</td><td>maniatta! = made it in time!</td></tr>
+<tr><td>umareru</td><td>to be born</td><td>umareta hi = birthday (lit: day born)</td></tr>
+<tr><td>sodateru</td><td>to raise / bring up (a child)</td><td></td></tr>
+<tr><td>nakunaru</td><td>to disappear / run out / pass away</td><td>context-dependent</td></tr>
+</table>
+
+<div class="clabel">Suru-Verbs</div>
+<table class="wtable">
+<tr><td>yakusoku suru</td><td>to promise / make plans</td><td>yakusoku = noun: promise/appointment</td></tr>
+<tr><td>renraku suru</td><td>to contact / get in touch</td><td>one of the most-used suru-verbs</td></tr>
+<tr><td>soudan suru</td><td>to consult / talk over</td><td>soudan ni noru = lend an ear</td></tr>
+<tr><td>junbi suru</td><td>to prepare / get ready</td><td>junbi wa dekita = preparations are done</td></tr>
+<tr><td>renshuu suru</td><td>to practice</td><td></td></tr>
+<tr><td>souji suru</td><td>to clean / do cleaning</td><td></td></tr>
+<tr><td>hikkoshi suru</td><td>to move (house)</td><td>hikkoshi = the move itself</td></tr>
+<tr><td>tenshoku suru</td><td>to change jobs</td><td>tenshoku = job change</td></tr>
+</table>
+
+<div class="clabel">Functional Nouns — High Priority</div>
+<table class="wtable">
+<tr><td>hazu</td><td>should be / supposed to / expected to</td><td>todoku hazu = should arrive · expresses reasonable expectation</td></tr>
+<tr><td>tsumori</td><td>intention / plan</td><td>iku tsumori = plan to go · dou suru tsumori? = what are you planning?</td></tr>
+<tr><td>wake</td><td>reason / situation / the deal</td><td>dou iu wake? = what's the deal? · wake ga wakaranai = don't understand the situation</td></tr>
+<tr><td>baai</td><td>case / situation / time when</td><td>kono baai = in this case · used for conditionals</td></tr>
+<tr><td>mama</td><td>as is / as it is / left as-is</td><td>sono mama = leave it as is · dono mama? = just as it is?</td></tr>
+<tr><td>you (用)</td><td>business / errand / something to deal with</td><td>you ga aru = have something to do · you ga nai = nothing going on</td></tr>
+<tr><td>kibun</td><td>mood / general feeling</td><td>kibun ga ii = feel good · kibun ga warui = feel sick/off</td></tr>
+<tr><td>kanji</td><td>feeling / sense / vibe</td><td>ii kanji = good vibe · kanji ga suru = to sense / feel something</td></tr>
+<tr><td>kankei</td><td>relationship / connection / relevance</td><td>kankei nai = not related / doesn't matter</td></tr>
+<tr><td>mondai</td><td>problem / issue</td><td>mondai nai = no problem</td></tr>
+<tr><td>kekka</td><td>result / outcome</td><td>ii kekka = good result</td></tr>
+<tr><td>riyuu</td><td>reason (for something)</td><td>riyuu wo oshiete = tell me the reason</td></tr>
+<tr><td>imi</td><td>meaning</td><td>imi ga wakaranai = I don't understand the meaning</td></tr>
+<tr><td>joukyou</td><td>situation / condition / state of affairs</td><td>ima no joukyou = current situation</td></tr>
+<tr><td>chuui</td><td>caution / attention / warning</td><td>chuui shite = be careful · chuui suru = to warn</td></tr>
+<tr><td>rei</td><td>example / instance</td><td>tatoeba = for example (set phrase)</td></tr>
+<tr><td>kihon</td><td>basics / fundamentals</td><td>kihon ga taisetsu = the basics are important</td></tr>
+</table>
+
+<div class="clabel">Abstract Nouns — Plans, Feelings, Situations</div>
+<table class="wtable">
+<tr><td>fuan</td><td>anxiety / unease</td><td>fuan da = I'm anxious · fuan ni naru = to become anxious</td></tr>
+<tr><td>kinchou</td><td>nervousness / tension</td><td>kinchou shite iru = am nervous</td></tr>
+<tr><td>kenka</td><td>fight / argument / quarrel</td><td>kenka suru = to fight/argue</td></tr>
+<tr><td>yakusoku</td><td>promise / appointment / plan</td><td>yakusoku wo mamoru = keep a promise</td></tr>
+<tr><td>seikatsu</td><td>daily life / lifestyle / living</td><td>seikatsu ga kawaru = lifestyle changes</td></tr>
+<tr><td>sugoshikata</td><td>way of spending time</td><td>yasumi no hi no sugoshikata = how you spend your days off</td></tr>
+<tr><td>buntan</td><td>division of labor / sharing responsibility</td><td>buntan suru = to divide work</td></tr>
+<tr><td>okurimono</td><td>gift / present / package to give</td><td>more formal than purezento</td></tr>
+<tr><td>zairyou</td><td>ingredients / materials</td><td>ryouri no zairyou = cooking ingredients</td></tr>
+<tr><td>mensetsu</td><td>interview / meeting (formal)</td><td>mensetsu wo ukeru = take/have an interview</td></tr>
+</table>
+
+<div class="clabel">Places &amp; Settings</div>
+<table class="wtable">
+<tr><td>toshokan</td><td>library</td><td></td></tr>
+<tr><td>yuubinkyoku</td><td>post office</td><td></td></tr>
+<tr><td>keisatsu</td><td>police / police station</td><td>kouban = small police box (more common)</td></tr>
+<tr><td>shiyakusho</td><td>city hall</td><td></td></tr>
+<tr><td>kissaten</td><td>traditional coffee shop / café</td><td>older feel than kafe</td></tr>
+<tr><td>sentou</td><td>public bathhouse</td><td></td></tr>
+<tr><td>hoomu</td><td>platform (train station)</td><td>from English "platform"</td></tr>
+<tr><td>mangakissa</td><td>manga café / internet café</td><td>stay overnight, cheap</td></tr>
+<tr><td>hon'ya</td><td>bookstore</td><td>honya = informal</td></tr>
+<tr><td>shingou</td><td>traffic light / signal</td><td>shingou wo wataru = cross at the light</td></tr>
+<tr><td>kousaten</td><td>intersection / crossroads</td><td></td></tr>
+</table>
+
+<div class="clabel">People &amp; Roles</div>
+<table class="wtable">
+<tr><td>okyakusan</td><td>customer / guest / visitor</td><td>honorific -san built in</td></tr>
+<tr><td>untenshu</td><td>driver (professional)</td><td>taxi driver, bus driver</td></tr>
+<tr><td>kangofu / kangoshi</td><td>nurse</td><td>kangoshi = gender-neutral newer form</td></tr>
+<tr><td>isha</td><td>doctor / physician</td><td>different from sensei (informal for doctor)</td></tr>
+<tr><td>bengoshi</td><td>lawyer</td><td></td></tr>
+</table>
+
+<div class="clabel">Time &amp; Frequency</div>
+<table class="wtable">
+<tr><td>goro</td><td>around / about (time)</td><td>juuji goro = around 10 o'clock · goro is for time, gurai for amounts</td></tr>
+<tr><td>totan</td><td>the moment that / as soon as</td><td>~ta totan ni = the instant [verb] happened</td></tr>
+<tr><td>itsunomanika</td><td>before I knew it / without noticing</td><td>itsunomanika ichinichi ga tatta = before I knew it the day had passed</td></tr>
+<tr><td>sarani</td><td>even more / furthermore / on top of that</td><td>sarani waruku natta = got even worse</td></tr>
+<tr><td>dandan</td><td>gradually / little by little</td><td>dandan yokunatte kita = gradually getting better</td></tr>
+<tr><td>kore kara</td><td>from now on / going forward</td><td>kore kara wa = starting from now</td></tr>
+<tr><td>sono mama</td><td>as is / left just like that</td><td>sono mama ni shite oku = leave it as is</td></tr>
+</table>
+
+<div class="clabel">Body Parts</div>
+<table class="wtable">
+<tr><td>me</td><td>eye(s)</td><td>me ni hairu = come into view · me ga sameru = eyes open/wake up</td></tr>
+<tr><td>mimi</td><td>ear(s)</td><td>mimi ga ii = good hearing</td></tr>
+<tr><td>hana</td><td>nose</td><td>also means flower — context tells you</td></tr>
+<tr><td>kuchi</td><td>mouth</td><td>kuchi ga umai = smooth talker</td></tr>
+<tr><td>ha</td><td>tooth / teeth</td><td>ha wo migaku = brush teeth</td></tr>
+<tr><td>kubi</td><td>neck</td><td>kubi ni naru = get fired (idiom)</td></tr>
+<tr><td>kata</td><td>shoulder</td><td>kata ga koru = stiff shoulders (very common complaint)</td></tr>
+<tr><td>ude</td><td>arm</td><td>ude ga ii = skilled (idiom)</td></tr>
+<tr><td>te</td><td>hand</td><td>te wo kasu = lend a hand · te wo arau = wash hands</td></tr>
+<tr><td>yubi</td><td>finger</td><td>oyayubi = thumb (lit: parent finger)</td></tr>
+<tr><td>mune</td><td>chest</td><td>mune ga ippai = heart is full (emotionally)</td></tr>
+<tr><td>onaka</td><td>stomach / belly</td><td>onaka suita = I'm hungry (already know this form)</td></tr>
+<tr><td>ashi</td><td>leg / foot</td><td>same word for both — context</td></tr>
+<tr><td>hiza</td><td>knee</td><td></td></tr>
+<tr><td>senaka</td><td>back (of the body)</td><td>senaka ga itai = back hurts</td></tr>
+</table>
+
+<div class="clabel">New Adjectives &amp; Useful Expressions</div>
+<table class="wtable">
+<tr><td>sabishii</td><td>lonely</td><td>i-adjective</td></tr>
+<tr><td>mendou</td><td>troublesome / bothersome / too much effort</td><td>mendou na = na-adjective form</td></tr>
+<tr><td>teinei</td><td>polite / careful / thorough</td><td>teinei ni suru = do carefully</td></tr>
+<tr><td>tekitou</td><td>sloppy / halfhearted (casual)</td><td>also: appropriate/suitable — context matters</td></tr>
+<tr><td>mottainai</td><td>wasteful / what a waste</td><td>deep Japanese concept — guilt at waste</td></tr>
+<tr><td>isshokenmei</td><td>with all one's might / as hard as possible</td><td>isshokenmei yaru = give it everything</td></tr>
+<tr><td>atari mae</td><td>natural / obvious / of course</td><td>atari mae da = that's obvious</td></tr>
+<tr><td>chanto</td><td>properly / correctly / properly done</td><td>chanto shite = do it properly · very common</td></tr>
+</table>
+</div>
+<div id="p-phrases" class="panel">
+<div class="slabel">Conversational Phrases — Section 02</div>
+
+<div class="clabel">Asking for &amp; Giving Directions</div>
+<table class="ptable">
+<tr><td>Sumimasen, [place] wa dou ikeba ii desu ka?</td><td>Excuse me, how do I get to [place]?</td></tr>
+<tr><td>Koko kara massugu itte kudasai.</td><td>Go straight from here.</td></tr>
+<tr><td>Futatsu me no shingou de migi ni magatte kudasai.</td><td>Turn right at the second traffic light.</td></tr>
+<tr><td>Kousaten wo hidari ni magatte.</td><td>Turn left at the intersection.</td></tr>
+<tr><td>Migi gawa / hidari gawa ni arimasu.</td><td>It's on the right / left side.</td></tr>
+<tr><td>Aruite dono gurai kakarimasu ka?</td><td>About how long does it take on foot?</td></tr>
+<tr><td>Sugu soko desu yo.</td><td>It's right there.</td></tr>
+<tr><td>Michi ga wakaranaku natte shimaimashita.</td><td>I've gotten lost. (lit: I've come to not understand the way)</td></tr>
+<tr><td>Chizu wo misete moraemasu ka?</td><td>Could you show me a map?</td></tr>
+<tr><td>Issho ni itte agete mo ii desu yo.</td><td>I can walk you there if you'd like.</td></tr>
+</table>
+
+<div class="clabel">At the Post Office &amp; Running Errands</div>
+<table class="ptable">
+<tr><td>Kore wo [city/place] made okuritai n desu kedo.</td><td>I'd like to send this to [place], please.</td></tr>
+<tr><td>Nakami wa nan desu ka?</td><td>What's inside?</td></tr>
+<tr><td>Kowaremono wa haitte imasen.</td><td>There's nothing fragile inside.</td></tr>
+<tr><td>Okurisaki no juusho wo kaite kudasai.</td><td>Please write the recipient's address.</td></tr>
+<tr><td>Itsu tsukimasu ka?</td><td>When will it arrive?</td></tr>
+<tr><td>Ashita made ni todoku hazu desu.</td><td>It should arrive by tomorrow.</td></tr>
+<tr><td>Tesuu wa ikura desu ka?</td><td>How much is the fee?</td></tr>
+<tr><td>Maniaimashita!</td><td>Made it in time!</td></tr>
+</table>
+
+<div class="clabel">At Work &amp; Formal Settings</div>
+<table class="ptable">
+<tr><td>Mensetsu wo ukeni kimashita.</td><td>I've come for the interview.</td></tr>
+<tr><td>Yoroshiku onegaishimasu.</td><td>I'm in your hands. / Nice to meet you. (formal)</td></tr>
+<tr><td>Shitsumon ga arimashita ra, jiyuu ni kiite kudasai.</td><td>If you have any questions, please feel free to ask.</td></tr>
+<tr><td>Kangaete kara, ohenji shimasu.</td><td>I'll reply after giving it some thought.</td></tr>
+<tr><td>Kakunin shite okimasu.</td><td>I'll confirm/check in advance.</td></tr>
+<tr><td>Junbi wa dekite imasu.</td><td>The preparations are done.</td></tr>
+<tr><td>Soudan shitai koto ga aru n desu kedo.</td><td>There's something I'd like to talk over with you.</td></tr>
+<tr><td>Otsukaresama desu.</td><td>Good work. / Hello. (standard office greeting)</td></tr>
+</table>
+
+<div class="clabel">Expressing Feelings &amp; Inner State</div>
+<table class="ptable">
+<tr><td>Nanka fuan de sa.</td><td>I'm kind of anxious, you know.</td></tr>
+<tr><td>Kinchou shite kimashita.</td><td>I've started getting nervous.</td></tr>
+<tr><td>Ii kanji ga suru.</td><td>I have a good feeling about it.</td></tr>
+<tr><td>Kibun ga sukoshi warui.</td><td>I feel a bit off today.</td></tr>
+<tr><td>Mune ga ippai desu.</td><td>My heart is full. (moved/emotional)</td></tr>
+<tr><td>Tasukarimashita.</td><td>You've really helped me out. / That saved me.</td></tr>
+<tr><td>Itsunomanika, owarimashita.</td><td>Before I knew it, it was done.</td></tr>
+<tr><td>Dandan yokunatte kita.</td><td>It's gradually getting better.</td></tr>
+</table>
+
+<div class="clabel">Apologizing &amp; Making Up</div>
+<table class="ptable">
+<tr><td>Chanto tsutaereba yokatta.</td><td>I should have communicated properly. (~ba yokatta)</td></tr>
+<tr><td>Iisugita to omou.</td><td>I think I said too much.</td></tr>
+<tr><td>Jibun no kimochi wo motto oshiete hoshii.</td><td>I want you to tell me more about how you feel.</td></tr>
+<tr><td>Kore kara wa ki wo tsukeru yo.</td><td>I'll be more careful from now on.</td></tr>
+<tr><td>Wasurete kudasai.</td><td>Please forget what I said / Let's put it behind us.</td></tr>
+<tr><td>Mou kenka wa iya da ne.</td><td>I don't want to fight anymore.</td></tr>
+<tr><td>Nakanaori shiyou.</td><td>Let's make up.</td></tr>
+</table>
+
+<div class="clabel">Intentions, Plans &amp; Effort</div>
+<table class="ptable">
+<tr><td>Iku tsumori wa aru n da kedo...</td><td>I do plan to go, but... (with hesitation)</td></tr>
+<tr><td>Renshuu shite okimashita.</td><td>I've practiced in advance. (~te oku)</td></tr>
+<tr><td>Hayaku neru you ni shite imasu.</td><td>I'm making an effort to sleep early. (~you ni suru)</td></tr>
+<tr><td>Dandan wakatte kuru to omoimasu.</td><td>I think it'll gradually become clear.</td></tr>
+<tr><td>Kangaete okimasu.</td><td>I'll think about it (in advance).</td></tr>
+<tr><td>Chotto soudan shite mo ii?</td><td>Can I talk something over with you? (casual)</td></tr>
+<tr><td>Dakara koso, gambaru n da yo.</td><td>That's exactly why I'm working hard.</td></tr>
+</table>
+</div>
+<div id="p-grammar" class="panel">
+<div class="slabel">Grammar Patterns — Section 02 · N5 Depth + Start of N4</div>
+<div class="infobox"><strong>How to use</strong>Look patterns up when you hit them in stories — don't pre-study. Each pattern is one concept with one table. The ~you ni forms and ~tara conditional will appear everywhere in real speech. Focus on those first.</div>
+
+<div class="conj-h">~te ageru / ~te morau / ~te kureru — giving &amp; receiving actions</div>
+<p class="conj-note">The most important set of patterns in natural Japanese. Who does the action <em>for</em> whom — and which direction favors whom — changes the word. Native speakers use these constantly; forgetting them makes speech sound cold.</p>
+<table class="ctable">
+<tr><th>Pattern</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>~te ageru</td><td class="rom">do [verb] for someone else</td><td class="ex"><span class="r">Oshiete ageru yo.</span>I'll show/tell you (doing a favor for you).</td></tr>
+<tr><td>~te morau</td><td class="rom">have someone do [verb] for me</td><td class="ex"><span class="r">Oshiete moratta.</span>I had them teach me / they taught me (for my benefit).</td></tr>
+<tr><td>~te kureru</td><td class="rom">someone does [verb] for me (their initiative)</td><td class="ex"><span class="r">Oshiete kureta.</span>They taught me (on their own, as a favor to me).</td></tr>
+<tr><td>~te moraemasu ka?</td><td class="rom">could you do [verb] for me? (polite request)</td><td class="ex"><span class="r">Misete moraemasu ka?</span>Could you show me?</td></tr>
+<tr><td>~te kudasai</td><td class="rom">please do [verb] (direct polite request)</td><td class="ex"><span class="r">Kite kudasai.</span>Please come.</td></tr>
+</table>
+<div class="infobox"><strong>Key distinction</strong>ageru = you → them &nbsp;·&nbsp; morau = them → you (you get the benefit) &nbsp;·&nbsp; kureru = they → you (spontaneous gift of action)</div>
+
+<div class="conj-h">~n desu / ~ndesu — explanation &amp; context</div>
+<p class="conj-note">Adds a layer of "and here's why / the deal is..." — softens statements, invites dialogue, shows you're sharing context not just facts. One of the most-used patterns in real conversation.</p>
+<table class="ctable">
+<tr><th>Form</th><th>How to build it</th><th>Example</th></tr>
+<tr><td>verb + n desu</td><td class="rom">plain form + n desu</td><td class="ex"><span class="r">Iku n desu.</span>The thing is, I'm going. / I'm going (explaining).</td></tr>
+<tr><td>i-adj + n desu</td><td class="rom">plain adj + n desu</td><td class="ex"><span class="r">Isogashii n desu.</span>The thing is, I'm busy.</td></tr>
+<tr><td>noun / na-adj + na n desu</td><td class="rom">[noun/na-adj] + na n desu</td><td class="ex"><span class="r">Ryokou na n desu.</span>It's a trip, you see.</td></tr>
+<tr><td>casual: ~ n da</td><td class="rom">plain form + n da</td><td class="ex"><span class="r">Iku n da.</span>I'm going, you see. (casual explanation)</td></tr>
+<tr><td>question: ~ n desu ka?</td><td class="rom">adds "and is that so?"</td><td class="ex"><span class="r">Byouki na n desu ka?</span>Oh, are you sick? (seeking explanation)</td></tr>
+</table>
+
+<div class="conj-h">~ga hoshii — wanting a thing (noun)</div>
+<p class="conj-note">For wanting a noun. Different from ~tai which is for wanting to do a verb. Conjugates like an i-adjective.</p>
+<table class="ctable">
+<tr><th>Pattern</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>[noun] ga hoshii</td><td class="rom">Atarashii kaban ga hoshii.</td><td class="en">I want a new bag.</td></tr>
+<tr><td>hoshiku nai</td><td class="rom">Sore wa hoshiku nai.</td><td class="en">I don't want that.</td></tr>
+<tr><td>hoshikatta</td><td class="rom">Zutto hoshikatta n da.</td><td class="en">I've wanted it for a long time.</td></tr>
+<tr><td>~te hoshii</td><td class="rom">Chanto itte hoshii.</td><td class="en">I want you to say it properly. (want someone to do something)</td></tr>
+</table>
+
+<div class="conj-h">~koto ga dekiru — ability (more formal than dekiru alone)</div>
+<p class="conj-note">Attach to the dictionary form. More formal/explicit than just using dekiru.</p>
+<table class="ctable">
+<tr><th>Form</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>[dict form] + koto ga dekiru</td><td class="rom">Oyogu koto ga dekimasu.</td><td class="en">I can swim.</td></tr>
+<tr><td>negative</td><td class="rom">Oyogu koto ga dekimasen.</td><td class="en">I can't swim.</td></tr>
+<tr><td>casual</td><td class="rom">Nihongo ga hanaseru.</td><td class="en">I can speak Japanese. (potential form — same idea)</td></tr>
+</table>
+
+<div class="conj-h">~tari ~tari suru — doing things like X and Y</div>
+<p class="conj-note">List actions without exhausting every option. Sounds natural when describing routines or typical behavior. Form: past casual (~ta) → swap final a for i, add ri.</p>
+<table class="ctable">
+<tr><th>How to build</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>[~ta form] → [~tari] × 2 + suru</td><td class="rom">Yondari kaitari suru.</td><td class="en">I do things like read and write.</td></tr>
+<tr><td>past: ~tari ~tari shita</td><td class="rom">Sanpo shitari, kaimono shitari shita.</td><td class="en">I did things like take a walk and go shopping.</td></tr>
+<tr><td>with shimau</td><td class="rom">Wasure tari suru kara ki wo tsukete.</td><td class="en">I sometimes forget (lit: do things like forget), so be careful.</td></tr>
+</table>
+
+<div class="conj-h">~tara — if / when conditional (most common conditional)</div>
+<p class="conj-note">Most versatile Japanese conditional. Use it freely in speech. Form: past casual (~ta) + ra. Both "if" and "when" depending on context.</p>
+<table class="ctable">
+<tr><th>Form</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>[~ta] + ra</td><td class="rom">Ame ga futtara, ie ni iru.</td><td class="en">If it rains, I'll stay home.</td></tr>
+<tr><td>past event: when [did]</td><td class="rom">Uchi ni kaettara, mou nete ita.</td><td class="en">When I got home, they were already asleep.</td></tr>
+<tr><td>with question</td><td class="rom">Shitsumon saretara, dou suru?</td><td class="en">What will you do if they ask questions?</td></tr>
+<tr><td>advice: ~tara ii</td><td class="rom">Hayaku neta ra ii yo.</td><td class="en">You should sleep early. (lit: if you sleep early, it'd be good)</td></tr>
+<tr><td>regret: ~tara yokatta</td><td class="rom">Hayaku itta ra yokatta.</td><td class="en">I should have said it earlier.</td></tr>
+</table>
+
+<div class="conj-h">~ba — if conditional (more formal / hypothetical)</div>
+<p class="conj-note">More hypothetical or literary than ~tara. Used for advice, regret, and "if only" feelings. Verb: change final ~u to ~eba. i-adjective: ~i → ~kereba.</p>
+<table class="ctable">
+<tr><th>Form</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>verb: ~u → ~eba</td><td class="rom">Ikeba wakaru yo.</td><td class="en">If you go, you'll understand.</td></tr>
+<tr><td>i-adj: ~i → ~kereba</td><td class="rom">Yasukere ba ii noni.</td><td class="en">If only it were cheaper.</td></tr>
+<tr><td>regret: ~ba yokatta</td><td class="rom">Chanto katazukereba yokatta.</td><td class="en">I should have tidied up properly.</td></tr>
+<tr><td>advice: ~ba ii</td><td class="rom">Kotaereba ii n dayo.</td><td class="en">All you have to do is answer.</td></tr>
+</table>
+
+<div class="conj-h">~you ni suru — making an effort to / trying to (habit/change)</div>
+<p class="conj-note">You are actively working to change a behavior or establish a habit. Not a one-time action — an ongoing effort.</p>
+<table class="ctable">
+<tr><th>Form</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>[dict form] + you ni suru</td><td class="rom">Hayaku neru you ni shite iru.</td><td class="en">I'm making an effort to sleep early.</td></tr>
+<tr><td>[nai form] + you ni suru</td><td class="rom">Osoku naranai you ni shite iru.</td><td class="en">I'm trying not to be late.</td></tr>
+<tr><td>past: ~you ni shita</td><td class="rom">Aruku you ni shita.</td><td class="en">I started making an effort to walk.</td></tr>
+</table>
+
+<div class="conj-h">~you ni naru — coming to / having come to (gradual change)</div>
+<p class="conj-note">Something changed over time — an ability developed, a habit formed, a feeling shifted. Not a deliberate effort (that's ~you ni suru) — just how things turned out.</p>
+<table class="ctable">
+<tr><th>Form</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>[dict form] + you ni naru</td><td class="rom">Nihongo ga hanaseru you ni natta.</td><td class="en">I've come to be able to speak Japanese.</td></tr>
+<tr><td>[nai form] + you ni naru</td><td class="rom">Amari nomanai you ni natta.</td><td class="en">I've come to drink less.</td></tr>
+<tr><td>gradual shift</td><td class="rom">Suki ni natte kita.</td><td class="en">I've started to like it (gradually).</td></tr>
+</table>
+
+<div class="conj-h">~te oku — doing in advance / leaving as is</div>
+<p class="conj-note">Two uses: (1) do something now for future benefit, (2) leave something as is (often intentionally). Both express intentionality about timing.</p>
+<table class="ctable">
+<tr><th>Use</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>do in advance</td><td class="rom">Yoyaku shite okimashita.</td><td class="en">I booked it in advance (so we're set).</td></tr>
+<tr><td>set something up</td><td class="rom">Oshiete oite ageru.</td><td class="en">I'll let you know ahead of time.</td></tr>
+<tr><td>leave as is</td><td class="rom">Sore wa sono mama ni shite oku.</td><td class="en">I'll leave that as is (for now).</td></tr>
+<tr><td>casual: ~toku</td><td class="rom">Kangaetoku.</td><td class="en">I'll think about it (casual contraction).</td></tr>
+</table>
+
+<div class="conj-h">~node — because (soft / explanatory)</div>
+<p class="conj-note">Softer than kara. Presents the reason as a given fact, less forceful. Often preferred in polite speech and when explaining circumstances.</p>
+<table class="ctable">
+<tr><th>Form</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>plain form + node</td><td class="rom">Isogashii node, ikemasen.</td><td class="en">Because I'm busy, I can't go. (explaining circumstances)</td></tr>
+<tr><td>noun / na-adj + na node</td><td class="rom">Kaigi na node, ato de.</td><td class="en">Since it's a meeting, (let's do it) later.</td></tr>
+<tr><td>vs kara</td><td class="rom">Isogashii kara, ikemasen.</td><td class="en">I'm busy so I can't go. (more assertive / causal)</td></tr>
+</table>
+
+<div class="conj-h">~noni — even though / despite (complaint / contrast)</div>
+<p class="conj-note">Signals that the speaker expected something different. Often carries frustration, disappointment, or surprise. Very common in emotional speech.</p>
+<table class="ctable">
+<tr><th>Form</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>plain form + noni</td><td class="rom">Isshokenmei yatte iru noni, umaku ikanai.</td><td class="en">Even though I'm trying my hardest, it's not going well.</td></tr>
+<tr><td>noun / na-adj + na noni</td><td class="rom">Ii tenki na noni, ienai yo ne.</td><td class="en">It's nice weather, yet we can't go out.</td></tr>
+<tr><td>at end of sentence</td><td class="rom">Itte kurereba yokatta noni.</td><td class="en">I wish you had told me... (trailing complaint)</td></tr>
+</table>
+
+<div class="conj-h">Relative clauses — [verb/adj] + noun</div>
+<p class="conj-note">Japanese relative clauses come BEFORE the noun, not after. There is no "that/which/who" — the modifying clause simply sits in front. One of the most important structures to internalize.</p>
+<table class="ctable">
+<tr><th>Structure</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>[verb (plain)] + noun</td><td class="rom">Kinou tabeta ramen</td><td class="en">The ramen I ate yesterday</td></tr>
+<tr><td>[neg verb] + noun</td><td class="rom">Mada mite inai eiga</td><td class="en">A movie I haven't seen yet</td></tr>
+<tr><td>[i-adj] + noun</td><td class="rom">Takai kuruma</td><td class="en">An expensive car</td></tr>
+<tr><td>[na-adj + na] + noun</td><td class="rom">Kirei na machi</td><td class="en">A beautiful town</td></tr>
+<tr><td>embedded in sentence</td><td class="rom">Kinou au hito wa dare desu ka?</td><td class="en">Who is the person you're meeting tomorrow?</td></tr>
+</table>
+</div>
+<div id="p-s1" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 01</div>
+    <div class="story-title">Michi de Mayotta <span class="story-title-en">— Lost on the Way</span></div>
+  </div>
+  <div class="story-meta">~380 words · Directions · Neighborhood · Polite + casual</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Kenta wa atarashii hon'ya wo sagashite imashita. Tomodachi ni kiite, eki kara aruite ikeru to oshiete moratta n desu ga, michi ga wakaranaku narimashita.</p>
+  <p class="gloss-line narr">Kenta [wa=topic] · new · bookstore [hon'ya] [wo=obj] · searching [sagashite imashita=ongoing]. friend [ni=from] · asked [kiite] · station [eki] [kara=from] · walking · can get there · [to=that] · had been told [oshiete moratta=received telling] · [n desu ga=but, explanatory softener] · road [michi] [ga=subject] · came to not understand [wakaranaku narimashita=got lost]</p>
+  <p class="en-line narr">Kenta was looking for a new bookstore. He'd had a friend tell him he could walk there from the station, but he'd lost his way.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Sumimasen, chotto kiite mo ii desu ka?</p>
+  <p class="gloss-line">excuse me [sumimasen] · a bit [chotto] · ask [kiite] · [mo=even if] · okay [ii] · [desu] · [ka=question, 'may I ask something?']</p>
+  <p class="en-line">Excuse me, may I ask you something?</p>
+</div><div class="s-block">
+  <span class="spk">Ojisan</span>
+  <p class="jp-line">Hai, nan deshou ka?</p>
+  <p class="gloss-line">yes · what [nan] · [deshou ka=polite 'what is it?']</p>
+  <p class="en-line">Yes, what is it?</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Ano... Midori Shobo tte iu hon'ya wo sagashite iru n desu kedo, doko ka gozonji desu ka?</p>
+  <p class="gloss-line">[ano=um, filler]... Midori Shobo · [tte iu=called, quoting name] · bookstore [hon'ya] [wo=obj] · looking for [sagashite iru=ongoing] · [n desu kedo=but, explanatory] · somewhere [doko ka] · do you know [gozonji desu ka=very polite 'do you know']</p>
+  <p class="en-line">Um... I'm looking for a bookstore called Midori Shobo — do you happen to know where it is?</p>
+</div><div class="s-block">
+  <span class="spk">Ojisan</span>
+  <p class="jp-line">Aa, Midori Shobo ne. Shitteru yo. Koko kara massugu itte, futatsu me no shingou de migi ni magatte. Sou suru to, hidari gawa ni mieru hazu da yo.</p>
+  <p class="gloss-line">[aa] · Midori Shobo · [ne=confirming]. know [shitteru] · [yo=assertion]. here [koko] [kara=from] · straight [massugu] · go [itte] · second [futatsu me] [no=possessive] · traffic light [shingou] · [de=at] · right [migi] [ni=to] · turn [magatte]. do that [sou suru to=when you do] · left side [hidari gawa] [ni=on] · should see [mieru hazu=expected to appear] · [da] · [yo=confident]</p>
+  <p class="en-line">Ah, Midori Shobo. I know it. Go straight from here, then turn right at the second traffic light. After that, it should come into view on your left side.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Futatsu me no shingou de migi desu ne. Wakarimashita. Aruite dono gurai kakarimasu ka?</p>
+  <p class="gloss-line">second [no=possessive] · traffic light · [de=at] · right · [desu] · [ne=confirming what I heard]. understood [wakarimashita]. walking [aruite] · how long [dono gurai] · does it take [kakarimasu] · [ka=question]</p>
+  <p class="en-line">Right at the second traffic light. Got it. About how long does it take on foot?</p>
+</div><div class="s-block">
+  <span class="spk">Ojisan</span>
+  <p class="jp-line">Sou da ne... gofun ka roppun gurai ka na. Sou tooku nai yo.</p>
+  <p class="gloss-line">[sou da ne=hmm let me see, thinking filler]... 5 min · or [ka] · 6 min · about [gurai] · [ka na=I think, casual estimate]. that · far · not [nai] · [yo=reassurance]</p>
+  <p class="en-line">Let's see... about five or six minutes I think. It's not that far.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Yokatta! Arigatou gozaimasu. Hontou ni tasukarimashita.</p>
+  <p class="gloss-line">great/relief [yokatta=was good]! thank you [arigatou gozaimasu]. truly · was helped [tasukarimashita=received help, passive benefit]</p>
+  <p class="en-line">What a relief! Thank you so much. You've really helped me out.</p>
+</div><div class="s-block">
+  <span class="spk">Ojisan</span>
+  <p class="jp-line">Ii yo, ki wo tsukete ne.</p>
+  <p class="gloss-line">fine [ii] · [yo=warm dismissal]. take care [ki wo tsukete] · [ne=warm closing]</p>
+  <p class="en-line">Of course, take care.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Kenta wa ojisan ga oshiete kureta toori ni arukimashita. Shingou wo watatte migi ni magatta totan ni, kireina mise ga me ni hairimashita.</p>
+  <p class="gloss-line narr">Kenta [wa=topic] · old man [ojisan] [ga=subject] · told [oshiete kureta=told for my benefit] · just as [toori ni] · walked. traffic light [wo=obj] · crossed [watatte] · right [migi] [ni=to] · turned [magatta] · the very moment [totan ni] · nice [kireina] · shop [ga=subject] · eyes [me] [ni=into] · came [hairimashita=entered view]</p>
+  <p class="en-line narr">Kenta walked just as the man had told him. The moment he crossed the light and turned right, a nice-looking shop came into view.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Aa, koko da! Mitsuketa!</p>
+  <p class="gloss-line">[aa] · here [koko] · [da=it is]! found it [mitsuketa=plain past, excited]</p>
+  <p class="en-line">Ah, here it is! Found it!</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Mise no naka ni hairu to, takusan no hon ga kirei ni narande imashita. Kenta wa ureshiku natte, yukkuri mite mawari mashita.</p>
+  <p class="gloss-line narr">shop [mise] [no=possessive] · inside [naka] [ni=into] · enter [hairu] · [to=when] · many [no=possessive] · books [ga=subject] · neatly [kirei ni] · lined up [narande imashita=ongoing]. Kenta [wa=topic] · happy · became [ureshiku natte] · slowly · looked around [mite mawari mashita]</p>
+  <p class="en-line narr">When he entered the shop, all kinds of books were neatly lined up. Kenta felt happy and slowly browsed around.</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">hon'ya<span>bookstore</span></span><span class="vtag">sagashite iru n desu<span>I'm looking for... (explaining with ~n desu)</span></span><span class="vtag">gozonji desu ka<span>do you happen to know? (polite: gozonjiru = honorific of shiru)</span></span><span class="vtag">shingou<span>traffic light / signal</span></span><span class="vtag">futatsu me<span>the second one (futatsu = two things, me = [ordinal marker])</span></span><span class="vtag">gawa<span>side — hidari gawa = left side, migi gawa = right side</span></span><span class="vtag">mieru hazu<span>should be visible (hazu = expected/supposed to)</span></span><span class="vtag">tasukarimashita<span>you've really helped me out (lit: I was saved)</span></span><span class="vtag">oshiete kureta toori ni<span>just as [they] told me (~te kureru + toori ni = in the way of)</span></span><span class="vtag">~ta totan ni<span>the moment that [verb] happened</span></span><span class="vtag">narande imashita<span>were lined up / arranged (narande = te-form of narabu)</span></span></div>
+</div>
+</div>
+</div>
+<div id="p-s2" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 02</div>
+    <div class="story-title">Yuubinkyoku de <span class="story-title-en">— At the Post Office</span></div>
+  </div>
+  <div class="story-meta">~360 words · Errands · Post office · Polite register</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Ami no tomodachi no Hana wa, kazoku ni okurimono wo okuru tame ni yuubinkyoku ni ikimashita.</p>
+  <p class="gloss-line narr">Ami [no=possessive] · friend [tomodachi] [no=possessive] · Hana [wa=topic] · family [kazoku] [ni=to] · gift [okurimono] [wo=obj] · send · [tame ni=in order to, purpose] · post office [yuubinkyoku] [ni=to] · went [ikimashita]</p>
+  <p class="en-line narr">Hana, Ami's friend, went to the post office to send a gift to her family.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Naka ni hairu to, suu-nin no okyakusan ga naranде imashita. Hana wa bango fuda wo tori, ban wo machimashita.</p>
+  <p class="gloss-line narr">inside [naka] [ni=into] · enter [hairu] · [to=when] · several [suu-nin] [no=possessive] · customers [ga=subject] · were lined up [narande imashita]. Hana [wa=topic] · number ticket [bango fuda] [wo=obj] · took [tori] · turn [ban] [wo=obj] · waited [machimashita]</p>
+  <p class="en-line narr">When she entered, several customers were queued up. Hana took a number ticket and waited her turn.</p>
+</div><div class="s-block">
+  <span class="spk">Staff</span>
+  <p class="jp-line">Otsugi no kata, douzo.</p>
+  <p class="gloss-line">next [otsugi=polite] [no=possessive] · person [kata=polite for person] · please [douzo=step forward]</p>
+  <p class="en-line">Next person, please.</p>
+</div><div class="s-block">
+  <span class="spk">Hana</span>
+  <p class="jp-line">Hai. Ano, kore wo Osaka made okuritai n desu kedo.</p>
+  <p class="gloss-line">yes. [ano=um, filler] · this [kore] [wo=obj] · Osaka · [made=to/as far as] · want to send [okuritai] · [n desu kedo=explanatory softener, 'if I could']</p>
+  <p class="en-line">Yes. Um, I'd like to send this to Osaka, if I could.</p>
+</div><div class="s-block">
+  <span class="spk">Staff</span>
+  <p class="jp-line">Wakarimashita. Nakami wa nan deshou ka?</p>
+  <p class="gloss-line">understood [wakarimashita]. contents [nakami] [wa=topic] · what [nan] · [deshou ka=polite 'what might it be?']</p>
+  <p class="en-line">Of course. What's inside?</p>
+</div><div class="s-block">
+  <span class="spk">Hana</span>
+  <p class="jp-line">Okashi to, chiisana purezento desu. Kowaremono wa haitte imasen.</p>
+  <p class="gloss-line">sweets [okashi] · and [to] · small · gift [purezento] · [desu]. fragile [kowaremono] [wa=topic] · not inside [haitte imasen=not contained]</p>
+  <p class="en-line">Sweets and a small gift. There's nothing fragile inside.</p>
+</div><div class="s-block">
+  <span class="spk">Staff</span>
+  <p class="jp-line">Sou desu ka. Dewa, koko ni okurisaki no onamae to juusho wo kaite itadakemasu ka?</p>
+  <p class="gloss-line">I see [sou desu ka]. then [dewa=well then, formal] · here [koko] [ni=on] · recipient [okurisaki] [no=possessive] · name [onamae=polite] · and [to] · address [juusho] [wo=obj] · write [kaite] · could I receive [itadakemasu ka=polite 'would you please']</p>
+  <p class="en-line">I see. Then, could you write the recipient's name and address here?</p>
+</div><div class="s-block">
+  <span class="spk">Hana</span>
+  <p class="jp-line">Hai. ...Kore de ii desu ka?</p>
+  <p class="gloss-line">yes. ...this [kore] · [de=with this] · okay [ii] · [desu] · [ka=confirmation]</p>
+  <p class="en-line">Yes... Is this okay?</p>
+</div><div class="s-block">
+  <span class="spk">Staff</span>
+  <p class="jp-line">Arigatou gozaimasu. Ryoukin wa hyaku-hachi-juu-en ni narimasu.</p>
+  <p class="gloss-line">thank you [arigatou gozaimasu]. fee [ryoukin] [wa=topic] · 180 yen · [ni narimasu=comes to, polite]</p>
+  <p class="en-line">Thank you. The fee will be 180 yen.</p>
+</div><div class="s-block">
+  <span class="spk">Hana</span>
+  <p class="jp-line">Hai, douzo. Itsu tsukimasu ka?</p>
+  <p class="gloss-line">yes · here you go [douzo]. when [itsu] · will arrive [tsukimasu] · [ka=question]</p>
+  <p class="en-line">Here you go. When will it arrive?</p>
+</div><div class="s-block">
+  <span class="spk">Staff</span>
+  <p class="jp-line">Ashita no gogo ni wa todoku hazu desu.</p>
+  <p class="gloss-line">tomorrow [no=possessive] · afternoon · [ni wa=by] · arrive [todoku] · should [hazu desu=expected to]</p>
+  <p class="en-line">It should arrive by tomorrow afternoon.</p>
+</div><div class="s-block">
+  <span class="spk">Hana</span>
+  <p class="jp-line">Yokatta! Jitsu wa, haha no tanjoubi ga ashita na n desu. Maniaimashita.</p>
+  <p class="gloss-line">great [yokatta=relief]! actually [jitsu wa] · mother [haha] [no=possessive] · birthday [tanjoubi] [ga=subject] · tomorrow · [na n desu=it is, explanatory]. made it in time [maniaimashita]</p>
+  <p class="en-line">That's a relief! Actually, tomorrow is my mom's birthday, you see. I made it in time.</p>
+</div><div class="s-block">
+  <span class="spk">Staff</span>
+  <p class="jp-line">Sou desu ka! Okasan mo yorokobimasu ne.</p>
+  <p class="gloss-line">oh really [sou desu ka=with warmth]! mother [okasan=polite] [mo=also] · will be pleased [yorokobimasu] · [ne=won't she, warmth]</p>
+  <p class="en-line">Oh really! Your mom will be pleased.</p>
+</div><div class="s-block">
+  <span class="spk">Hana</span>
+  <p class="jp-line">Arigatou gozaimashita.</p>
+  <p class="gloss-line">thank you very much [arigatou gozaimashita=past form, formal completion]</p>
+  <p class="en-line">Thank you very much.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Mise wo deru to, Hana wa hotto shimashita. Sugu sumaaho wo dashite, haha ni renraku shite, okurimono ga todoku to shirasete okimashita.</p>
+  <p class="gloss-line narr">shop [mise] [wo=obj] · exit [deru] · [to=when] · Hana [wa=topic] · sighed with relief [hotto shimashita]. immediately · phone [wo=obj] · took out [dashite] · mother [haha] [ni=to] · got in touch · gift [okurimono] [ga=subject] · will arrive · [to=that] · let know in advance [shirasete okimashita=told ahead of time]</p>
+  <p class="en-line narr">When she left, Hana felt relieved. She immediately took out her phone, contacted her mom, and let her know in advance that the gift was on its way.</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">yuubinkyoku<span>post office</span></span><span class="vtag">okurimono<span>gift / something to give / package</span></span><span class="vtag">narande imashita<span>were lined up (narabu → narande)</span></span><span class="vtag">bango fuda<span>number ticket (for waiting your turn)</span></span><span class="vtag">okurisaki<span>recipient / destination (okurisaki no juusho = recipient's address)</span></span><span class="vtag">nakami<span>contents / what's inside</span></span><span class="vtag">juusho<span>address</span></span><span class="vtag">ryoukin<span>fee / charge</span></span><span class="vtag">todoku hazu desu<span>should arrive (todoku = to be delivered, hazu = expectation)</span></span><span class="vtag">~ na n desu<span>the thing is, it's ~ (na n desu after noun/na-adj)</span></span><span class="vtag">maniaimashita<span>made it in time (maniawanai = won't make it)</span></span><span class="vtag">shirasete okimashita<span>let [them] know in advance (~te oku for future benefit)</span></span><span class="vtag">hotto shimashita<span>felt relieved (hotto suru = sigh of relief)</span></span></div>
+</div>
+</div>
+</div>
+<div id="p-s3" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 03</div>
+    <div class="story-title">Mensetsu no Mae no Yoru <span class="story-title-en">— The Night Before the Interview</span></div>
+  </div>
+  <div class="story-meta">~420 words · Work · Anxiety · Phone call · Casual</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Tenshoku no mensetsu wa ashita da. Daisuke wa ie de hitori, shiryou wo yomi naoshite imashita. Jibun de mo kizukanai uchi ni, te ga furuete imashita.</p>
+  <p class="gloss-line narr">job change [tenshoku] [no=possessive] · interview [mensetsu] [wa=topic] · tomorrow [da]. Daisuke [wa=topic] · home [ie] [de=at] · alone [hitori] · materials [shiryou] [wo=obj] · re-reading [yomi naoshite imashita=ongoing]. himself [jibun de mo] · without realizing [kizukanai uchi ni] · hands [te] [ga=subject] · were trembling [furuete imashita=ongoing]</p>
+  <p class="en-line narr">The job interview is tomorrow. Daisuke was home alone, re-reading his materials. Without even realizing it himself, his hands were trembling.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Rina ni denwa shimashita.</p>
+  <p class="gloss-line narr">Rina [ni=to] · phone [denwa] · called [shimashita]</p>
+  <p class="en-line narr">He called Rina.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Moshi moshi?</p>
+  <p class="gloss-line">hello [moshi moshi=phone answering set phrase] · [?=upward intonation]</p>
+  <p class="en-line">Hello?</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Aa, Rina. Ima daijoubu? Chotto kiite hoshikute sa.</p>
+  <p class="gloss-line">[aa] · Rina. now · okay [daijoubu]? a bit [chotto] · want you to listen [kiite hoshikute=want the favor of] · [sa=you know, trailing]</p>
+  <p class="en-line">Ah, Rina. Is now a good time? I kind of wanted to talk to you.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Zenzen ii yo. Dou shita no?</p>
+  <p class="gloss-line">not at all [zenzen] · fine [ii] · [yo=assurance]. what happened [dou shita no=what's up, casual]</p>
+  <p class="en-line">Of course, it's fine. What's up?</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Jitsu wa, ashita mensetsu atte sa. Nanka... fuan de.</p>
+  <p class="gloss-line">actually [jitsu wa] · tomorrow · interview [mensetsu] · there is [atte] · [sa=you know, trailing]. [nanka=somehow, filler]... anxious [fuan] · [de=and/because, trailing off]</p>
+  <p class="en-line">The thing is, I have an interview tomorrow. Somehow... I'm anxious.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Aa, asoko no ka! Junbi wa dekite iru no?</p>
+  <p class="gloss-line">[aa] · that place [asoko] [no=possessive] · [ka=oh, that one! realization]. preparation [junbi] [wa=topic] · done [dekite iru=ongoing] · [no=seeking info]</p>
+  <p class="en-line">Oh, that one! Are you prepared?</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Daitai wa. Jiko shoukai to, naze tenshoku shitai ka no riyuu wa renshuu shite okita. Demo, shitsumon saretara dou shiyou tte omotте.</p>
+  <p class="en-line">Mostly. I've practiced my self-introduction and reasons for wanting to change jobs in advance. But I'm worried about what to do if they ask questions.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Sore wa daijoubu da yo. Shitsumon saretara, chanto kangaete kara kotaereba ii n da yo. Awatenakute ii.</p>
+  <p class="gloss-line">that [wa=topic] · fine [daijoubu] · [da] · [yo=assurance]. if asked [saretara=conditional] · properly [chanto] · think [kangaete] · [kara=after] · if answer [kotaereba] · fine [ii] · [n da yo=explanatory assertion]. don't panic [awatenakute] · fine [ii]</p>
+  <p class="en-line">That'll be fine. If they ask questions, just think properly first and then answer. No need to panic.</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Sou da yo ne... Sono kaisha, hontou ni ikitai n da yo ne. Dakara kinchou suru.</p>
+  <p class="gloss-line">you're right [sou da yo ne=agreeing warmly]. that · company [kaisha] · truly · want to go [ikitai] · [n da yo ne=explanatory, seeking agreement]. therefore [dakara] · nervous [kinchou] · get [suru]</p>
+  <p class="en-line">You're right... I really want to go to that company. That's why I'm nervous.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Dakara koso, ii n ja nai? Hontou ni ikitai tte kimochi, zettai tsutawaru to omou yo.</p>
+  <p class="gloss-line">[dakara koso=that's exactly why, emphatic] · good · [n ja nai=isn't it?]. truly · want to go · [tte=quoted] · feeling [kimochi] · definitely [zettai] · gets across [tsutawaru] · [to=that] · think [omou] · [yo=conviction]</p>
+  <p class="en-line">Isn't that exactly why it's good? I think genuine desire to be there definitely comes across.</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Sou kana...</p>
+  <p class="gloss-line">is it so [sou] · [kana=I wonder, soft doubt]...</p>
+  <p class="en-line">You think so...</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Zettai sou. Ne, mou hayaku nete oita hou ga ii yo. Tsukarete itara, atama mo ugoka nai shi.</p>
+  <p class="gloss-line">definitely [zettai] · so. [ne=hey, getting attention] · already · early · sleep [nete] · do in advance [oita=oku te-form] · better [hou ga ii] · [yo=firm]. tired [tsukarete] · if [itara] · brain [atama] [mo=either] · won't work [ugoka nai] · [shi=and, adding reason]</p>
+  <p class="en-line">Definitely. Hey, it's better to sleep early now. If you're tired, your brain won't work properly either.</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Sou da ne. Jaa, neyou. Arigatou, Rina. Hanashite yokatta.</p>
+  <p class="gloss-line">right [sou da ne]. then [jaa] · will sleep [neyou=casual volitional]. thanks · Rina. talked · was good [hanashite yokatta=glad I talked]</p>
+  <p class="en-line">You're right. Okay, I'll go sleep. Thanks, Rina. I'm glad I talked to you.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Gambatte ne, Daisuke! Ii kekka ni naru yo, zettai!</p>
+  <p class="gloss-line">do your best [gambatte] · [ne=warm encouragement] · Daisuke! good · result [kekka] [ni=into] · will become [naru] · [yo=assurance] · definitely [zettai]</p>
+  <p class="en-line">Do your best, Daisuke! Things will definitely work out!</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Un, arigatou!</p>
+  <p class="gloss-line">[un=yeah, casual] · thanks [arigatou=casual]!</p>
+  <p class="en-line">Yeah, thanks!</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Denwa wo kitta ra, sukoshi kimochi ga raku ni narimashita. Daisuke wa hayaku neru you ni shimashita.</p>
+  <p class="gloss-line narr">phone [wo=obj] · hung up [kitta ra=when hung up] · a little · feeling [kimochi] [ga=subject] · easier · became [raku ni narimashita]. Daisuke [wa=topic] · early · sleep [neru] · [you ni suru=make effort to do] · did [shimashita]</p>
+  <p class="en-line narr">After he hung up, he felt a little lighter. Daisuke made an effort to sleep early.</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">tenshoku<span>changing jobs / job change</span></span><span class="vtag">mensetsu<span>interview (job, medical, etc.)</span></span><span class="vtag">shiryou<span>documents / materials / reference</span></span><span class="vtag">jiko shoukai<span>self-introduction</span></span><span class="vtag">renshuu shite okita<span>practiced in advance (~te oku: did for future benefit)</span></span><span class="vtag">riyuu<span>reason (for doing something)</span></span><span class="vtag">fuan<span>anxiety / unease</span></span><span class="vtag">kinchou suru<span>to be nervous / tense</span></span><span class="vtag">shitsumon saretara<span>if/when asked questions (~tara conditional)</span></span><span class="vtag">kotaereba ii<span>all you have to do is answer (~ba ii = should / it's fine if you)</span></span><span class="vtag">awatenakute ii<span>no need to panic (awateru = to fluster/panic)</span></span><span class="vtag">dakara koso<span>that's exactly why / that's precisely the reason</span></span><span class="vtag">tsutawaru<span>to be communicated / to get across / to reach (the listener)</span></span><span class="vtag">neyou<span>let's sleep (casual volitional of neru)</span></span><span class="vtag">hayaku neru you ni shimashita<span>made an effort to sleep early (~you ni suru)</span></span></div>
+</div>
+</div>
+</div>
+<div id="p-s4" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 04</div>
+    <div class="story-title">Atarashii Heya <span class="story-title-en">— The New Apartment</span></div>
+  </div>
+  <div class="story-meta">~400 words · Friends · New home · Casual hangout</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Rina ga hikkoshi shite kara, ni-shuukan ga tachimashita. Kyou, Daisuke to Yuki ga asobi ni kimashita.</p>
+  <p class="gloss-line narr">Rina [ga=subject] · moved [hikkoshi shite] · [kara=since/after] · two weeks [ni-shuukan] [ga=subject] · passed [tachimashita]. today · Daisuke · and [to] · Yuki [ga=subject] · to visit [asobi ni=purpose] · came [kimashita]</p>
+  <p class="en-line narr">Two weeks had passed since Rina moved. Today, Daisuke and Yuki came to visit.</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Oo, ii heya ja nai! Hiroi ne!</p>
+  <p class="gloss-line">[oo=wow, male exclamation] · good · room · isn't it [ja nai=rhetorical]! spacious [hiroi] · [ne=sharing impression]</p>
+  <p class="en-line">Whoa, it's a nice place! Spacious!</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Desho! Mae yori chotto hiroi n da. De, mado kara kouen ga mieru no ga sugoku ki ni itte.</p>
+  <p class="gloss-line">[desho=right?! seeking agreement]. before [mae] · than [yori] · a bit [chotto] · bigger [hiroi] · [n da=explanatory]. and [de=transition] · window [mado] [kara=from] · park [kouen] [ga=subject] · can see [mieru] · [no ga=that fact, subject] · really [sugoku] · like [ki ni itte=taken a liking to]</p>
+  <p class="en-line">Right?! It's a bit bigger than before. And I love that you can see the park from the window.</p>
+</div><div class="s-block">
+  <span class="spk">Yuki</span>
+  <p class="jp-line">Ii na! Kouen ga mieru heya tte, kibun ii yo ne. Asa okita toki, saikou jan.</p>
+  <p class="gloss-line">nice [ii] · [na=wistful admiration]! park [ga=subject] · can see [mieru] · room · [tte=speaking of] · feeling good [kibun ii] · [yo] · [ne=right?]. morning · woke up [okita] · when [toki] · the best [saikou] · [jan=ja nai, casual 'isn't it?']</p>
+  <p class="en-line">That's nice! A room where you can see the park feels great, doesn't it. Waking up in the morning here would be the best.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Sou sou! Dakara koko ni kimeta n da. Chotto eki kara tooi kedo ne.</p>
+  <p class="gloss-line">right right [sou sou]. [dakara=therefore/that's why] · here [koko] [ni=to] · decided [kimeta] · [n da=explanatory]. a bit · station [eki] [kara=from] · far · but [kedo] · [ne=trailing softener]</p>
+  <p class="en-line">Exactly! That's why I chose this place. It is a bit far from the station though.</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Nani ka hoshii mono aru? Hikkoshi iwai ni katte ageru yo.</p>
+  <p class="gloss-line">something [nani ka] · wanted [hoshii] · thing [mono] · is there [aru]? moving gift [hikkoshi iwai] [ni=as] · buy [katte] · give you [ageru=give upward/to someone] · [yo=I mean it]</p>
+  <p class="en-line">Is there anything you want? I'll buy you something as a moving gift.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Hontou ni? Etto... jitsu wa, chiisana kabe-kakе tokei ga hoshikatta n da yo ne.</p>
+  <p class="gloss-line">really [hontou ni]? [etto=hmm, thinking filler]... actually [jitsu wa] · small · wall-hanging [kabe-kake] · clock [tokei] [ga=subject] · was wanting [hoshikatta=past desire] · [n da yo ne=explanatory, 'you see']</p>
+  <p class="en-line">Really? Hmm... actually, I've been wanting a small wall clock.</p>
+</div><div class="s-block">
+  <span class="spk">Yuki</span>
+  <p class="jp-line">Aa, wakaru! Ii kanji no tokei aru to, heya ga shimaru yo ne.</p>
+  <p class="gloss-line">[aa] · I get it [wakaru=I understand]! good · feel [kanji] [no=possessive] · clock · there is [aru] · [to=when] · room [ga=subject] · comes together [shimaru=tightens/completes] · [yo] · [ne=right?]</p>
+  <p class="en-line">Oh, I totally get that! When there's a nice clock, it pulls the whole room together.</p>
+</div><div class="s-block">
+  <span class="spk">Daisuke</span>
+  <p class="jp-line">Ja, ato de kaimono ikoukai. Issho ni erabo yo.</p>
+  <p class="gloss-line">then [ja] · later [ato de] · shopping · shall we go [ikoukai=volitional + kai, casual question]. together · let's choose [erabo] · [yo=suggestion]</p>
+  <p class="en-line">Then let's go shopping later. We'll pick one out together.</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Hontou ni? Ureshii! Jaa, mazu ocha demo nomimashouka. Katazuketari souji shitari de tsukareta kara sa.</p>
+  <p class="gloss-line">really [hontou ni]? happy [ureshii]! then [jaa] · first [mazu] · tea · [demo=or something like, casual] · shall we drink [nomimashouka=polite volitional + question]. tidying up [katazuketari] · cleaning [souji shitari=tari form, doing things like] · [de=from] · tired [tsukareta] · [kara=because] · [sa=you know, trailing]</p>
+  <p class="en-line">Really? I'm so happy! Then shall we have some tea first. I'm tired from all the tidying up and cleaning.</p>
+</div><div class="s-block">
+  <span class="spk">Yuki</span>
+  <p class="jp-line">Ii ne! Nani ka tetsudau koto aru?</p>
+  <p class="gloss-line">nice · [ne=warm agreement]! something [nani ka] · help [tetsudau] · thing [koto] · is there [aru=can I do something]?</p>
+  <p class="en-line">Sounds good! Is there anything I can help with?</p>
+</div><div class="s-block">
+  <span class="spk">Rina</span>
+  <p class="jp-line">Daijoubu daijoubu. Mou daitai dekita kara, yukkuri shite tte.</p>
+  <p class="gloss-line">fine [daijoubu] · fine [daijoubu=repeated for emphasis]. already · mostly · done [dekita] · [kara=because/so] · slowly [yukkuri] · please do [shite tte=informal request form, 'just relax']</p>
+  <p class="en-line">Don't worry at all. It's mostly done, so just relax.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Sannin wa chiisana teeburu ni suwatte, ocha wo nominagara, iroiro hanashimashita. Rina no atarashii seikatsu ga, yatto hajimatta kanji ga shimashita.</p>
+  <p class="gloss-line narr">three people [wa=topic] · small · table [ni=at] · sat [suwatte] · tea [wo=obj] · while drinking [nominagara] · various [iroiro] · talked. Rina [no=possessive] · new · life [seikatsu] [ga=subject] · finally [yatto] · began [hajimatta] · feeling [kanji] [ga=subject] · came [shimashita=felt]</p>
+  <p class="en-line narr">The three sat at the small table, drinking tea and talking about all kinds of things. It felt like Rina's new life had finally begun.</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">hikkoshi suru<span>to move house (hikkoshi = the move)</span></span><span class="vtag">hikkoshi iwai<span>housewarming gift (iwai = celebration/gift for occasion)</span></span><span class="vtag">mado kara ~ ga mieru no<span>the fact that you can see ~ from the window (relative clause + no = nominalizer)</span></span><span class="vtag">ki ni iru<span>to like / to be fond of (ki ni itte = liking it)</span></span><span class="vtag">kibun<span>mood / feeling (kibun ii = feels good)</span></span><span class="vtag">hoshikatta n da<span>I'd been wanting it (~ga hoshii + past + n da for explanation)</span></span><span class="vtag">kanji no ii<span>good-feeling / nice vibe (kanji = feel/vibe)</span></span><span class="vtag">heya ga shimaru<span>the room comes together / looks complete (shimaru = to pull tight)</span></span><span class="vtag">erabo<span>let's choose (casual volitional of erabu)</span></span><span class="vtag">katazuketari souji shitari<span>doing things like tidying and cleaning (~tari ~tari suru)</span></span><span class="vtag">tetsudau<span>to help / assist with a task</span></span><span class="vtag">seikatsu<span>daily life / lifestyle</span></span><span class="vtag">kanji ga shimashita<span>it felt like / I sensed that (kanji ga suru)</span></span></div>
+</div>
+</div>
+</div>
+<div id="p-s5" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 05</div>
+    <div class="story-title">Issho ni Tsukurou <span class="story-title-en">— Let's Cook Together</span></div>
+  </div>
+  <div class="story-meta">~420 words · Cooking · Teamwork · Casual friends</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Ryou to Ami wa, Ami no uchi de gohan wo tsukuru koto ni shimashita. Kyou no menyu wa karaage to yasai itame desu.</p>
+  <p class="gloss-line narr">Ryo · and [to] · Ami [wa=topic] · Ami [no=possessive] · home [uchi] [de=at] · dinner [gohan] [wo=obj] · make · [koto ni shimashita=decided to]. today [no=possessive] · menu [wa=topic] · karaage · and [to] · stir-fry [yasai itame] · [desu]</p>
+  <p class="en-line narr">Ryo and Ami decided to cook dinner at Ami's place. Tonight's menu: karaage and stir-fried vegetables.</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Ja, te wo aratte kara, zairyou wo junbi shimashou ka.</p>
+  <p class="gloss-line">then [ja] · hands [te] [wo=obj] · wash [aratte] · [kara=after] · ingredients [zairyou] [wo=obj] · prepare [junbi] · shall we [shimashou ka=polite volitional question]</p>
+  <p class="en-line">Okay, after washing hands, shall we get the ingredients ready.</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">Wakatta. Boku wa nani wo suru?</p>
+  <p class="gloss-line">got it [wakatta=plain past]. I [boku=casual male] [wa=topic] · what [nani] [wo=obj] · do [suru]?</p>
+  <p class="en-line">Got it. What should I do?</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Jagaimo to ninjin wo kitte kuれないkana. Watashi wa niku wo shite oku kara.</p>
+  <p class="gloss-line">potatoes [jagaimo] · and [to] · carrots [ninjin] [wo=obj] · cut [kitte] · won't you [kurenai kana=casual request, 'could you?']. I [wa=topic] · meat [niku] [wo=obj] · prep in advance [shite oku] · [kara=because/so]</p>
+  <p class="en-line">Could you cut the potatoes and carrots for me. I'll prep the meat in advance.</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">Ryoukai. Tamanegi wa?</p>
+  <p class="gloss-line">understood [ryoukai=roger, acknowledgment]. onion [tamanegi] [wa=topic, asking about it too]?</p>
+  <p class="en-line">Roger that. What about the onion?</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Aa, tamanegi mo yatte kurete ru? Me ni shimiru kara, watashi iya na n da yo ne.</p>
+  <p class="gloss-line">[aa] · onion [mo=also] · would you do [yatte kurete ru=casual, doing for me]? eyes [me] [ni=into] · stings [shimiru] · [kara=because] · I · hate [iya] · [na n da yo ne=explanatory, 'you see, I hate it']</p>
+  <p class="en-line">Oh, would you do the onion too? They make my eyes sting, I hate it.</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">Ha ha, wakatta. Boku ga yatte ageru yo. Niku wa dou shitara ii?</p>
+  <p class="gloss-line">ha ha · got it [wakatta]. I [boku] [ga=subject, taking on the task] · will do it for you [yatte ageru=do + give upward] · [yo=assertive]. meat [niku] [wa=topic] · how · if I do [shitara] · good [ii]?</p>
+  <p class="en-line">Ha ha, got it. I'll do it for you. And what do I do with the meat?</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Shio, koshou, shouyu wo chotto irete, niku wo momu kanji. Ato wa katakuriko wo furikakete ne.</p>
+  <p class="gloss-line">salt [shio] · pepper [koshou] · soy sauce [shouyu] [wo=obj] · a bit · put in [irete] · meat [niku] [wo=obj] · massage [momu] · feeling [kanji=kind of like]. after that [ato wa] · potato starch [katakuriko] [wo=obj] · sprinkle [furikakete] · [ne=instruction, gentle]</p>
+  <p class="en-line">Add a little salt, pepper, and soy sauce, and kind of massage the meat. Then dust on some potato starch.</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">Katakuriko, doko?</p>
+  <p class="gloss-line">potato starch · where [doko]? [casual, no desu ka]</p>
+  <p class="en-line">Where's the potato starch?</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Ryouri no hikidashi ni haitte iru hazu. Totte kuれるkana?</p>
+  <p class="gloss-line">cooking [ryouri] [no=possessive] · drawer [hikidashi] [ni=in] · should be in [haitte iru hazu=expected to be]. take out [totte] · could you [kureru kana=casual request, 'would you?']</p>
+  <p class="en-line">It should be in the cooking drawer. Could you grab it for me?</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">Aa, kore ka? [toridashite] Hai.</p>
+  <p class="gloss-line">[aa] · this [kore] · [ka=is it? checking]. [toridashite=action: takes it out]. here [hai=offering]</p>
+  <p class="en-line">Ah, is this it? [takes it out] Here.</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Sou sou, arigatou! Hontou ni tasukaru.</p>
+  <p class="gloss-line">that's right [sou sou=confirming]. thanks [arigatou]! truly · helpful [tasukaru=saves me]</p>
+  <p class="en-line">Yes, that's the one, thanks! You're a real lifesaver.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Futari wa buntan shite ryouri wo susumemashita. Dandan ii nioi ga shite kimashita.</p>
+  <p class="gloss-line narr">two people [wa=topic] · divided [buntan shite] · cooking [wo=obj] · made progress [susumemashita]. gradually [dandan] · good · smell [nioi] [ga=subject] · started to [shite kimashita=began to emerge]</p>
+  <p class="en-line narr">The two divided the work and made progress on the cooking. Gradually a good smell filled the room.</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">[ajimi shite] Aa, chotto shiokarai ka na. Iresugita ka mo.</p>
+  <p class="gloss-line">[tasting=action note]. [aa] · a bit · salty [shiokarai] · [ka na=I wonder]. put in too much [iresugita=exceeded in putting] · [ka mo=might have]</p>
+  <p class="en-line">[tasting] Hmm, maybe a bit salty. Might have put in too much.</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">Dou suru? Mizu wo sukoshi tasu?</p>
+  <p class="gloss-line">what to do [dou suru]? water [mizu] [wo=obj] · a little · add [tasu=add to amount]?</p>
+  <p class="en-line">What do we do? Add a little water?</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Yatte mite.</p>
+  <p class="gloss-line">give it a try [yatte mite=do and see, casual request]</p>
+  <p class="en-line">Give it a try.</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">[tashite, mazete] Dou kana? Ima wa?</p>
+  <p class="gloss-line">[action: adds, stirs]. how [dou] · [kana=I wonder]? now [ima] [wa=topic]?</p>
+  <p class="en-line">[adds some, stirs] How is it now?</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">[mata ajimi] Aa! Ii kanji ni natta! Ryo, yaru ne.</p>
+  <p class="gloss-line">[tasting again=action note]. [aa]! good · feeling [kanji] [ni=into] · came together [natta]. Ryo · doing it [yaru] · [ne=impressed, 'nice!']</p>
+  <p class="en-line">[tastes again] Oh! It's come together nicely! Ryo, you're good.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Gohan ga dekiagarimashita. Futari wa teeburu ni ryouri wo narabete, "Itadakimasu" wo itte tabehajimemashita.</p>
+  <p class="gloss-line narr">food [gohan] [ga=subject] · was completed [dekiagarimashita=fully done]. two people [wa=topic] · table [ni=on] · dishes [ryouri] [wo=obj] · arranged [narabete] · 'Itadakimasu' · [wo=obj] · said · started eating [tabehajimemashita]</p>
+  <p class="en-line narr">The food was ready. The two arranged the dishes on the table, said "Itadakimasu," and started eating.</p>
+</div><div class="s-block">
+  <span class="spk">Ami</span>
+  <p class="jp-line">Oishii! Issho ni tsukuru to, nanka motto oishiku kanji ru ne.</p>
+  <p class="gloss-line">delicious [oishii]! together · make [tsukuru] · [to=when/if] · [nanka=somehow, filler] · even more · delicious · feel [kanji ru] · [ne=sharing the feeling]</p>
+  <p class="en-line">Delicious! When you make it together, somehow it tastes even better.</p>
+</div><div class="s-block">
+  <span class="spk">Ryo</span>
+  <p class="jp-line">Hontou ni. Mata tsukurou.</p>
+  <p class="gloss-line">truly [hontou ni]. again · let's make [tsukurou=volitional]</p>
+  <p class="en-line">Seriously. Let's make it again.</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">zairyou<span>ingredients / materials</span></span><span class="vtag">karaage<span>Japanese fried chicken</span></span><span class="vtag">jagaimo<span>potato</span></span><span class="vtag">ninjin<span>carrot</span></span><span class="vtag">tamanegi<span>onion</span></span><span class="vtag">me ni shimiru<span>to sting the eyes (shimiru = to sting/seep in)</span></span><span class="vtag">yatte ageru<span>I'll do it for you (~te ageru: doing a favor)</span></span><span class="vtag">shite oku<span>do [it] in advance / prep it (~te oku)</span></span><span class="vtag">katakuriko<span>potato starch (used in karaage coating)</span></span><span class="vtag">furikakete<span>dust on / sprinkle over (furikakeru = to sprinkle)</span></span><span class="vtag">hikidashi<span>drawer</span></span><span class="vtag">tasukaru<span>to be saved / what a lifesaver (casual exclamation)</span></span><span class="vtag">buntan suru<span>to divide work / share responsibility</span></span><span class="vtag">shiokarai<span>salty (shio = salt, karai = spicy/strong flavor)</span></span><span class="vtag">tasu<span>to add / supplement</span></span><span class="vtag">dekiagaru<span>to be finished / completed (of food, projects)</span></span></div>
+</div>
+</div>
+</div>
+<div id="p-s6" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 06</div>
+    <div class="story-title">Saishuu Densha ni Noriokureta <span class="story-title-en">— Missed the Last Train</span></div>
+  </div>
+  <div class="story-meta">~380 words · Late night · Phone call · Mixed polite/casual</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Yoru juuji. Kenji wa eki no hoomu ni tatte imashita. Densha wa mou dete shimatte imashita. Noriokurete shimaimashita.</p>
+  <p class="gloss-line narr">10pm [yoru juuji]. Kenji [wa=topic] · station [eki] [no=possessive] · platform [hoomu] [ni=on] · standing [tatte imashita=ongoing]. train [wa=topic] · already [mou] · had left [dete shimatte imashita=completed, 'gone']. missed [noriokurete shimaimashita=ended up missing, regret]</p>
+  <p class="en-line narr">10pm. Kenji was standing on the station platform. The train had already gone. He'd missed it.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Aa, maji ka... Mitsuki ni renraku shinaito.</p>
+  <p class="gloss-line">[aa] · seriously [maji ka=really?! casual, 'no way']. Mitsuki [ni=to] · contact [renraku] · must do [shinaito=must, or bad]</p>
+  <p class="en-line">Oh man... I have to get in touch with Mitsuki.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Sumaaho wo dashite, LINE wo okurimashita.</p>
+  <p class="gloss-line narr">phone [wo=obj] · took out [dashite] · LINE message [wo=obj] · sent [okurimashita]</p>
+  <p class="en-line narr">He took out his phone and sent a LINE message.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">[LINE] Warui, saishuu densha ni noriokurete shimatta. Ima eki ni iru.</p>
+  <p class="gloss-line">[warui=sorry, casual]. last train [saishuu densha] [ni=onto] · ended up missing [noriokurete shimatta=regrettable completion]. now · station [ni=at] · am [iru=present/ongoing]</p>
+  <p class="en-line">[LINE] Sorry, I ended up missing the last train. I'm at the station now.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">[LINE] Ee? Dou suru no?</p>
+  <p class="gloss-line">[ee=what, surprised]? what [dou] · do [suru] · [no=seeking explanation]?</p>
+  <p class="en-line">[LINE] Seriously? What are you going to do?</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">[LINE] Chotto soudan shitai. Denwa shite mo ii?</p>
+  <p class="gloss-line">a bit · want to consult [soudan shitai]. call [denwa] · [shite mo ii=is it okay if I do]?</p>
+  <p class="en-line">[LINE] I want to talk it over a bit. Can I call?</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">[LINE] Ii yo.</p>
+  <p class="gloss-line">fine [ii] · [yo=go ahead]</p>
+  <p class="en-line">[LINE] Go ahead.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Moshi moshi. Dou natta no?</p>
+  <p class="gloss-line">hello [moshi moshi=phone greeting]. what happened [dou natta no=how did it turn out]?</p>
+  <p class="en-line">Hello. What happened?</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Kaigi ga nakanaka owaranakute sa. Isogashikute, jikan wo mite nakatta n da. Gomen.</p>
+  <p class="gloss-line">meeting [kaigi] [ga=subject] · not easily ending [nakanaka owaranakute=wouldn't end] · [sa=you know, trailing]. busy [isogashikute=and because busy] · time [jikan] [wo=obj] · wasn't watching [mite nakatta] · [n da=explanatory]. sorry [gomen=casual]</p>
+  <p class="en-line">The meeting just wouldn't end. I was busy and wasn't watching the time, you see. Sorry.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Shou ga nai ne... De, dou suru tsumori?</p>
+  <p class="gloss-line">can't be helped [shou ga nai=nothing to be done] · [ne=resigned]. and [de=so] · what · do [suru] · intend [tsumori=plan/intention]?</p>
+  <p class="en-line">Can't be helped I guess... So what are you planning to do?</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Maa, chikaku ni mangakissa ga aru to omou kara, asahi goro made ite, sono ato de kaereba ii ka to omotte.</p>
+  <p class="gloss-line">[maa=well, hedging] · nearby [chikaku] [ni=at] · manga café [mangakissa] [ga=subject] · there is [aru] · [to=that] · think [omou] · [kara=so] · dawn [asahi goro] · [made=until] · be [ite] · after that [sono ato de] · if I go home [kaereba] · fine [ii] · [ka to omotte=I was thinking that]</p>
+  <p class="en-line">Well, I think there's a manga café nearby, so I was thinking I could wait there until around dawn and then head home.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Sou ka... karada wa daijoubu?</p>
+  <p class="gloss-line">I see [sou ka]. body [karada] [wa=topic] · okay [daijoubu]?</p>
+  <p class="en-line">I see... are you okay?</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Daijoubu, daijoubu. Chotto tsukareta kedo ne. Shinpai shinakute ii yo.</p>
+  <p class="gloss-line">fine [daijoubu] · fine [daijoubu=repeated]. a bit · tired · but [kedo=soft]. don't worry [shinpai shinakute ii] · [yo=assurance]</p>
+  <p class="en-line">I'm fine, really. A bit tired though. Don't worry about me.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Wakatta. Ja, ki wo tsukete. Asagohan, tsukutte oite ageru kara.</p>
+  <p class="gloss-line">understood [wakatta]. then [ja] · take care [ki wo tsukete]. breakfast [asagohan] · make [tsukutte] · do in advance [oite=oku te-form] · will give you [ageru=give upward] · [kara=so/announcing intent]</p>
+  <p class="en-line">Alright. Take care then. I'll have breakfast made and waiting for you.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Hontou ni? Ureshii na. Arigatou, Mitsuki.</p>
+  <p class="gloss-line">really [hontou ni]? happy [ureshii] · [na=personal warm feeling]. thanks · Mitsuki</p>
+  <p class="en-line">Really? That makes me happy. Thanks, Mitsuki.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Hayaku kaette kite yo, chanto.</p>
+  <p class="gloss-line">quickly [hayaku] · come home [kaette kite] · [yo=firm request] · properly [chanto=properly, don't mess around]</p>
+  <p class="en-line">Come home properly soon, okay.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Un, wakatta. Oyasumi.</p>
+  <p class="gloss-line">[un=yeah]. got it [wakatta]. goodnight [oyasumi=casual]</p>
+  <p class="en-line">Yeah, got it. Goodnight.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Kenji wa chikaku no mangakissa wo mitsukemashita. Tsukarete ita node, seki ni suwaru to, totan ni nemuku narimashita.</p>
+  <p class="gloss-line narr">Kenji [wa=topic] · nearby · manga café [wo=obj] · found [mitsukemashita]. tired [tsukarete ita] · [node=because, softer] · seat [seki] [ni=to] · sit [suwaru] · [to=the moment] · immediately [totan ni] · sleepy · became [nemuku narimashita]</p>
+  <p class="en-line narr">Kenji found a nearby manga café. Because he was tired, the moment he sat down, he became sleepy.</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">hoomu<span>platform (train station)</span></span><span class="vtag">noriokureru<span>to miss a train/bus (noriokure + shimau for regret)</span></span><span class="vtag">saishuu densha<span>last train (saishuu = last / final)</span></span><span class="vtag">LINE wo okuru<span>to send a LINE message</span></span><span class="vtag">nakanaka owaranakute<span>just wouldn't end (nakanaka + nai = no matter what, won't)</span></span><span class="vtag">jikan wo mite nakatta<span>wasn't watching the time</span></span><span class="vtag">~ n da<span>you see / the thing is (n da = casual explanation)</span></span><span class="vtag">dou suru tsumori?<span>what are you planning to do? (tsumori = intention/plan)</span></span><span class="vtag">mangakissa<span>manga café / internet café</span></span><span class="vtag">asahi goro<span>around dawn (asahi = sunrise)</span></span><span class="vtag">goro<span>around / about (for time)</span></span><span class="vtag">tsukutte oite ageru<span>I'll make it and have it ready for you (~te oku + ~te ageru combined)</span></span><span class="vtag">node<span>because (softer than kara, explains circumstance)</span></span></div>
+</div>
+</div>
+</div>
+<div id="p-s7" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 07</div>
+    <div class="story-title">Nakanaori <span class="story-title-en">— Making Up</span></div>
+  </div>
+  <div class="story-meta">~420 words · Relationship · Honest conversation · Emotional register</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Kenji to Mitsuki ga kenka wo shite kara, san-nichi tattе imashita. Kenji wa nandoka renraku shita kedo, henji ga nakatta.</p>
+  <p class="gloss-line narr">Kenji · and [to] · Mitsuki [ga=subject] · fight [kenka] [wo=obj] · had [shite kara=since doing] · three days · had passed [tatte imashita]. Kenji [wa=topic] · several times [nandoka] · got in touch [renraku shita] · but [kedo] · reply [henji] [ga=subject] · was not [nakatta]</p>
+  <p class="en-line narr">Three days had passed since Kenji and Mitsuki's fight. Kenji had reached out several times, but there had been no reply.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Sono yoru, Kenji ga ie ni kaeru to, Mitsuki wa daidokoro ni imashita.</p>
+  <p class="gloss-line narr">that evening [sono yoru] · Kenji [ga=subject] · home [ie] [ni=to] · return [kaeru] · [to=when] · Mitsuki [wa=topic] · kitchen [daidokoro] [ni=in] · was [imashita]</p>
+  <p class="en-line narr">That evening, when Kenji came home, Mitsuki was in the kitchen.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">...Tadaima.</p>
+  <p class="gloss-line">...I'm home [tadaima=set phrase, returning home]. [... = heavy/hesitant tone]</p>
+  <p class="en-line">...I'm home.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Okaeri.</p>
+  <p class="gloss-line">welcome back [okaeri=set phrase, short form of okaerinasai]. [terse, no niceties]</p>
+  <p class="en-line">Welcome back.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Ano... chotto hanashitai n da kedo, ii ka na.</p>
+  <p class="gloss-line">[ano=um, hesitant filler]... a bit · want to talk [hanashitai] · [n da kedo=but, explanatory softener] · okay [ii] · [ka na=I wonder/tentative request]</p>
+  <p class="en-line">Um... I want to talk for a bit, if that's okay.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">...Ii yo.</p>
+  <p class="gloss-line">...[pause] fine [ii] · [yo=terse agreement]</p>
+  <p class="en-line">...Fine.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Boku, nani ga warukatta? Oshiete hoshii.</p>
+  <p class="gloss-line">I [boku=casual male] · what [nani] [ga=subject] · was wrong [warukatta=past adj]. want you to tell me [oshiete hoshii]</p>
+  <p class="en-line">What did I do wrong? I want you to tell me.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Wakatteru n ja nai no. Itsumo shigoto, shigoto... uchi no koto nante, zenzen kangaete nai ja nai.</p>
+  <p class="gloss-line">you know [wakatteru] · [n ja nai=isn't it, rhetorical accusation] · [no=feminine softener, but accusatory]. always · work · work... home [uchi] [no koto=matters of] · [nante=even, dismissive] · not at all [zenzen] · thinking [kangaete] · not [nai] · isn't it [ja nai=rhetorical, 'you don't']</p>
+  <p class="en-line">Don't you already know. It's always work, work... you don't think about home at all.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Sore wa... ore nari ni gambatte iru n da kedo na.</p>
+  <p class="gloss-line">that [wa=topic, conceding]... I [ore=rough casual male] · in my own way [nari ni] · trying hard [gambatte iru=ongoing] · [n da kedo=but, explanatory] · [na=personal feeling, trailing]</p>
+  <p class="en-line">That's... I am trying in my own way though.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Gambatte iru noni, amari kaeranainde sho. Sorede renraku mo osoi shi.</p>
+  <p class="gloss-line">trying hard [gambatte iru] · [noni=even though, frustration] · hardly [amari] · come home [kaeranainde sho=shortened assertion, 'you don't'] . and then [sorede] · contact [renraku] [mo=also] · late [osoi] · [shi=and, stacking complaints]</p>
+  <p class="en-line">Even though you're trying hard, you barely come home. And your messages are always late on top of that.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">...Sou da na. Gomen. Chanto tsutaereba yokatta.</p>
+  <p class="gloss-line">[pause]... right [sou] · [da] · [na=accepting, 'I guess you're right']. sorry [gomen]. properly [chanto] · if I had communicated [tsutaereba] · would have been better [yokatta=should have]</p>
+  <p class="en-line">...You're right. I'm sorry. I should have communicated properly.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">...Watashi mo, iisugita to omou. Demo sa, motto jibun no kimochi wo oshiete hoshii n da yo ne.</p>
+  <p class="gloss-line">[pause]... I [watashi] [mo=also] · said too much [iisugita=past, overdid saying] · [to=that] · think [omou]. but [demo] · [sa=you know, softening] · more · own [jibun] [no=possessive] · feelings [kimochi] [wo=obj] · want you to tell me [oshiete hoshii] · [n da yo ne=explanatory, seeking understanding]</p>
+  <p class="en-line">...I think I said too much too. But, I want you to share more about how you're feeling.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Wakatta. Kore kara wa, you ga areba, chanto renraku suru you ni suru.</p>
+  <p class="gloss-line">understood [wakatta]. from now [kore kara] [wa=topic] · something comes up [you ga areba=if there's a reason/thing] · properly [chanto] · contact [renraku] · [suru you ni suru=will make effort to do]</p>
+  <p class="en-line">I understand. From now on, when something comes up, I'll make an effort to properly get in touch.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Un. Watashi mo, motto hanashi wo kiku you ni naru kara sa.</p>
+  <p class="gloss-line">[un=yeah]. I [watashi] [mo=also] · more · talk [hanashi] [wo=obj] · listen to [kiku] · [you ni naru=will come to do, gradual change] · [kara=so/because] · [sa=you know, trailing]</p>
+  <p class="en-line">Yeah. And I'll become better at listening to you, too.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">...Arigatou. Hontou ni, wakatte kurete te ureshii yo.</p>
+  <p class="gloss-line">[pause]... thanks [arigatou]. truly · understand [wakatte] · received [kurete te=did for me] · happy [ureshii] · [yo=heartfelt]</p>
+  <p class="en-line">...Thank you. I'm really glad you understand.</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">Mou kenka wa iya da yo ne.</p>
+  <p class="gloss-line">anymore [mou] · fight [kenka] [wa=topic] · hate [iya] · [da] · [yo] · [ne=shared feeling]</p>
+  <p class="en-line">I don't want to fight anymore.</p>
+</div><div class="s-block">
+  <span class="spk">Kenji</span>
+  <p class="jp-line">Ore mo. ...Nanka hara hetta na. Issho ni nani ka tabeyou ka.</p>
+  <p class="gloss-line">me too [ore mo]. ...[nanka=somehow, filler] · stomach [hara=casual for onaka] · got empty [hetta=casual for suite kita]. together · something · shall we eat [tabeyou] · [ka=gentle question]</p>
+  <p class="en-line">Me neither. ...I'm kind of hungry. Shall we eat something together?</p>
+</div><div class="s-block">
+  <span class="spk">Mitsuki</span>
+  <p class="jp-line">...Shikata nai na. Nani ga ii?</p>
+  <p class="gloss-line">[pause]... can't be helped [shikata nai=there's no way around it, often affectionate exasperation] · [na=personal feeling]. what [nani] [ga=subject] · good [ii]?</p>
+  <p class="en-line">...You're impossible. What do you want?</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">kenka<span>fight / argument / quarrel</span></span><span class="vtag">henji<span>reply / response (to a message or question)</span></span><span class="vtag">oshiete hoshii<span>I want you to tell me (~te hoshii = want someone to do)</span></span><span class="vtag">nante<span>things like / the likes of (dismissive: uchi no koto nante = home and such)</span></span><span class="vtag">gambatte iru noni<span>even though [I'm] trying hard (~noni = even though, signals frustration)</span></span><span class="vtag">amari kaeranainde sho<span>you barely come home, right (sho = casual assertion seeking agreement)</span></span><span class="vtag">chanto tsutaereba yokatta<span>I should have communicated properly (~ba yokatta = should have)</span></span><span class="vtag">iisugita<span>said too much (iu + sugiru = to say excessively, past: iisugita)</span></span><span class="vtag">jibun no kimochi<span>one's own feelings</span></span><span class="vtag">you ga areba<span>if/when something comes up (~ba conditional + you = business/need)</span></span><span class="vtag">renraku suru you ni suru<span>make an effort to contact (~you ni suru = ongoing effort)</span></span><span class="vtag">hanashi wo kiku you ni naru<span>come to listen better (~you ni naru = gradual change)</span></span><span class="vtag">shikata nai<span>can't be helped / what can I do (fond exasperation between close people)</span></span></div>
+</div>
+</div>
+</div>
+<div id="p-s8" class="panel">
+<div class="story-wrap">
+<div class="story-head">
+  <div>
+    <div class="story-num">Section 02 · Story 08</div>
+    <div class="story-title">Yukkuri na Nichiyoubi <span class="story-title-en">— A Slow Sunday</span></div>
+  </div>
+  <div class="story-meta">~390 words · Solo · Reflection · Gentle interior monologue</div>
+</div>
+<div class="story-body">
+<div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Saikin, Kenta no yasumi no hi no sugoshikata ga sukoshi kawatte kimashita. Mae wa itsumo doko ka ni detakatta kedo, ima wa ie de yukkuri suru jikan ga suki ni natte iru n desu.</p>
+  <p class="gloss-line narr">lately [saikin] · Kenta [no=possessive] · days off [yasumi no hi] [no=possessive] · way of spending [sugoshikata] [ga=subject] · a little · changed [kawatte kimashita=has come to change]. before [mae] [wa=topic] · always · somewhere · wanted to go out [detakatta] · but [kedo] · now [ima] [wa=topic] · at home [ie de] · relaxing · time [jikan] [ga=subject] · come to like [suki ni natte iru=ongoing change] · [n desu=explanatory]</p>
+  <p class="en-line narr">Lately, how Kenta spends his days off has changed a little. Before, he always wanted to go out somewhere, but now he's come to like spending time relaxing at home.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Nichiyoubi no asa. Me ga sameru to, juuichi-ji goro deshita.</p>
+  <p class="gloss-line narr">Sunday [no=possessive] · morning. eyes [me] [ga=subject] · wake up [sameru=open] · [to=when] · around 11 o'clock · [deshita=it was]</p>
+  <p class="en-line narr">Sunday morning. When he opened his eyes, it was around 11am.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Nanka, ii ne. Okiru jikan wo kimenakute ii no ga, saikou da na.</p>
+  <p class="gloss-line">[nanka=somehow, filler] · nice [ii] · [ne=sharing]. wake up [okiru] · time [jikan] [wo=obj] · not having to decide [kimenakute ii=okay not to decide] · [no ga=that fact, subject] · the best [saikou] · [da] · [na=personal contentment]</p>
+  <p class="en-line">This is nice. Not having to decide when to wake up is just the best.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Kenta wa koohii wo irete, hondana kara hon wo tori, yomihajimemashita.</p>
+  <p class="gloss-line narr">Kenta [wa=topic] · coffee [wo=obj] · made [irete] · bookshelf [hondana] [kara=from] · book [hon] [wo=obj] · took [tori] · began reading [yomihajimemashita]</p>
+  <p class="en-line narr">Kenta made some coffee, took a book from the shelf, and began reading.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Sou ieba, saikin aruku you ni shite iru na. Maiasa juugofun dake demo. Karada ga sukoshi kawatte kita kanji ga suru.</p>
+  <p class="gloss-line">come to think of it [sou ieba=set phrase]. lately · walk [aruku] · [you ni shite iru=ongoing effort/habit]. every morning [maiasa] · 15 minutes · only [dake] · even [demo]. body [karada] [ga=subject] · a little · changed [kawatte kita=has come to change] · feeling [kanji] [ga=subject] · do [suru=I have that feeling]</p>
+  <p class="en-line">Come to think of it, I've been making an effort to walk lately. Even just 15 minutes every morning. I feel like my body has changed a little.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Hiru goro, onaka ga suite kimashita.</p>
+  <p class="gloss-line narr">around noon [hiru goro] · stomach [onaka] [ga=subject] · getting empty [suite kimashita=has come to be hungry]</p>
+  <p class="en-line narr">Around noon, he started to get hungry.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Nani wo tsukurou kana... Sou da, tamago kake gohan ni shiyou. Kantan ga ichiban.</p>
+  <p class="gloss-line">what [nani] [wo=obj] · shall I make [tsukurou] · [kana=I wonder]... [sou da=oh right, realization]. tamago kake gohan [raw egg on rice] · I'll go with [ni shiyou]. simple [kantan] [ga=subject] · best [ichiban=number one]</p>
+  <p class="en-line">What should I make... Right, I'll go with tamagokake gohan. Simple is the best.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Gohan wo tabete kara, sukoshi hirune wo shimashita. Me ga sameru to, mou yuugata deshita. Itsunomanika, ichinichi ga tatte imashita.</p>
+  <p class="gloss-line narr">meal [gohan] [wo=obj] · ate [tabete] · [kara=after] · a little · nap [hirune] · did [shimashita]. eyes · opened [sameru] · [to=when] · already [mou] · was evening [yuugata]. before he knew it [itsunomanika] · one day [ichinichi] [ga=subject] · had passed [tatte imashita]</p>
+  <p class="en-line narr">After eating, he napped for a while. When he woke up, it was already evening. Before he knew it, the whole day had passed.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">Nanka, kyou nanimo shite nai kedo, ii na. Saikin, kou iu jikan ga hitsuyou datte wakatte kita.</p>
+  <p class="gloss-line">[nanka=somehow, filler] · today · nothing · not done [shite nai] · but [kedo] · nice [ii] · [na=personal contentment]. lately · this kind [kou iu] · time [jikan] [ga=subject] · necessary [hitsuyou] · [datte=that, informal] · come to understand [wakatte kita=has come to realize]</p>
+  <p class="en-line">Somehow, I didn't do anything today, but it feels good. Lately I've come to understand that this kind of time is necessary.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Yoru, Kyou kara LINE ga kimashita.</p>
+  <p class="gloss-line narr">evening · Kyou · [kara=from] · LINE [ga=subject] · came [kimashita]</p>
+  <p class="en-line narr">That evening, a LINE message came from Kyou.</p>
+</div><div class="s-block">
+  <span class="spk">Kyou</span>
+  <p class="jp-line">[LINE] Ashita hima? Doko ka ikitai na.</p>
+  <p class="gloss-line">tomorrow · free [hima]? somewhere · want to go [ikitai] · [na=casual longing]</p>
+  <p class="en-line">[LINE] Free tomorrow? I want to go somewhere.</p>
+</div><div class="s-block">
+  <span class="spk">Kenta</span>
+  <p class="jp-line">[LINE] Ii ne. Doko ga ii?</p>
+  <p class="gloss-line">sounds good [ii] · [ne=warm]. where [doko] [ga=subject] · good [ii]?</p>
+  <p class="en-line">[LINE] Sounds good. Where would be nice?</p>
+</div><div class="s-block">
+  <span class="spk">Kyou</span>
+  <p class="jp-line">[LINE] Kangaete oite. Ashita hanasou.</p>
+  <p class="gloss-line">think about [kangaete] · do in advance [oite=oku te-form, 'keep it in mind']. tomorrow · let's talk [hanasou=casual volitional]</p>
+  <p class="en-line">[LINE] I'll think about it in advance. Let's talk tomorrow.</p>
+</div><div class="s-block">
+  <span class="spk narr">narration</span>
+  <p class="jp-line narr">Kenta wa sumaaho wo oki, mata hon no tsuzuki wo yomihajimemashita. Ii ichinichi deshita.</p>
+  <p class="gloss-line narr">Kenta [wa=topic] · phone [wo=obj] · put down [oki] · again · book [no=possessive] · continuation [tsuzuki] [wo=obj] · began reading [yomihajimemashita]. good · one day [ichinichi] · was [deshita]</p>
+  <p class="en-line narr">Kenta put down his phone and started reading his book again from where he left off. It had been a good day.</p>
+</div>
+</div>
+<div class="vocab-bar">
+<div class="vocab-label">New words in this story</div>
+<div class="vocab-list"><span class="vtag">sugoshikata<span>way of spending time (sugoshi = spend, kata = way/method)</span></span><span class="vtag">suki ni natte iru<span>have come to like (~you ni naru pattern implicit in natte iru)</span></span><span class="vtag">me ga sameru<span>eyes open / wake up (sameru = to awaken)</span></span><span class="vtag">juuichi-ji goro<span>around 11 o'clock (goro = around, for time)</span></span><span class="vtag">hondana<span>bookshelf</span></span><span class="vtag">aruku you ni shite iru<span>making an effort to walk (~you ni suru, ongoing)</span></span><span class="vtag">kanji ga suru<span>to feel / sense / get the impression of</span></span><span class="vtag">tamago kake gohan<span>TKG — raw egg on hot rice (beloved breakfast)</span></span><span class="vtag">hirune<span>nap (hirune suru = to nap)</span></span><span class="vtag">yuugata<span>evening / late afternoon</span></span><span class="vtag">itsunomanika<span>before I knew it / without noticing (itsunomanika ichinichi ga tatta = the whole day passed)</span></span><span class="vtag">hitsuyou datte wakatte kita<span>came to understand it's necessary (wakatte kita = gradually came to understand)</span></span><span class="vtag">kangaete oite<span>I'll think about it in advance (~te oku casual: kangaetoku)</span></span></div>
+</div>
+</div>
+</div>
+</main>
+<script>
+function go(id, idx) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  document.getElementById('p-' + id).classList.add('on');
+  document.querySelectorAll('.tab')[idx].classList.add('on');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+window.addEventListener('scroll', () => {
+  const d = document.documentElement;
+  const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+});
+</script>
+</body>
+</html>
